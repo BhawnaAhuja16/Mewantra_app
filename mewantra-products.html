@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Mewantra | Premium Dry Fruits & Nuts Catalog</title>
+    <meta name="description" content="Browse Mewantra's complete catalog of premium dry fruits and nuts. Almonds, dates, cashews, pistachios, and more at best prices with home delivery.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mewantra Products - Premium Dry Fruits Catalog">
+    <meta property="og:description" content="Complete range of premium dry fruits and nuts with prices">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #228B22;
+            --background: #FFF8DC;
+            --white: #FFFFFF;
+            --text: #2F1B14;
+            --light-text: #6B4423;
+            --border: #E5D4B1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .contact-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--secondary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: var(--white);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--background);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 3rem 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 120px;
+            height: 120px;
+            background: var(--background);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 3px solid var(--border);
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-variety {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .price-container {
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .price-per-kg {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .product-description {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .benefits {
+            background: var(--background);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .benefits h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .product-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .product-btn:hover {
+            background: #1e7e1e;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+
+        /* Special Offers */
+        .special-offers {
+            background: var(--white);
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .offer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .offer-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .offer-discount {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--background);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #E5D4B1;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #A0522D;
+            color: var(--background);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .filter-container {
+                gap: 0.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">Mewantra</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products.html" class="active">Products</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <a href="/contact.html" class="contact-btn">Order Now</a>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Premium Products</h1>
+            <p>Handpicked dry fruits and nuts delivered fresh to your doorstep</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="nuts">Nuts</button>
+                <button class="filter-btn" data-filter="dried-fruits">Dried Fruits</button>
+                <button class="filter-btn" data-filter="seeds">Seeds</button>
+                <button class="filter-btn" data-filter="premium">Premium Range</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <!-- Almonds -->
+                <div class="product-card" data-category="nuts premium">
+                    <div class="product-image">🌰</div>
+                    <h3>Premium Almonds</h3>
+                    <p class="product-variety">California & Kashmiri Varieties</p>
+                    <div class="price-container">
+                        <p class="price">₹450/250g</p>
+                        <p class="price-per-kg">₹1,800/kg</p>
+                    </div>
+                    <p class="product-description">Hand-selected premium almonds rich in protein, healthy fats, and vitamin E. Perfect for snacking and cooking.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in protein, healthy fats, vitamin E, and magnesium. Good for heart health and brain function.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Premium Almonds" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Dates -->
+                <div class="product-card" data-category="dried-fruits premium">
+                    <div class="product-image">🌴</div>
+                    <h3>Fresh Dates</h3>
+                    <p class="product-variety">Medjool, Ajwa & Khajoor</p>
+                    <div class="price-container">
+                        <p class="price">₹350/250g</p>
+                        <p class="price-per-kg">₹1,400/kg</p>
+                    </div>
+                    <p class="product-description">Premium quality dates from the finest sources. Naturally sweet and packed with nutrients.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Natural energy source, rich in fiber, potassium, and antioxidants. Great for digestive health.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Fresh Dates" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Cashews -->
+                <div class="product-card" data-category="nuts premium">
+                    <div class="product-image">🥜</div>
+                    <h3>Cashew Nuts</h3>
+                    <p class="product-variety">W240 & W320 Grades</p>
+                    <div class="price-container">
+                        <p class="price">₹500/250g</p>
+                        <p class="price-per-kg">₹2,000/kg</p>
+                    </div>
+                    <p class="product-description">Premium grade cashews, creamy and delicious. Perfect for cooking and snacking.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in healthy fats, protein, and minerals. Good for heart health and weight management.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Cashew Nuts" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Raisins -->
+                <div class="product-card" data-category="dried-fruits">
+                    <div class="product-image">🍇</div>
+                    <h3>Premium Raisins</h3>
+                    <p class="product-variety">Golden & Black Varieties</p>
+                    <div class="price-container">
+                        <p class="price">₹200/250g</p>
+                        <p class="price-per-kg">₹800/kg</p>
+                    </div>
+                    <p class="product-description">Sweet and chewy raisins perfect for snacking, baking, and cooking. Naturally dried and preserved.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in iron, potassium, and antioxidants. Good for bone health and energy.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Premium Raisins" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Pistachios -->
+                <div class="product-card" data-category="nuts premium">
+                    <div class="product-image">🌿</div>
+                    <h3>Pistachios</h3>
+                    <p class="product-variety">Iranian & Californian</p>
+                    <div class="price-container">
+                        <p class="price">₹800/250g</p>
+                        <p class="price-per-kg">₹3,200/kg</p>
+                    </div>
+                    <p class="product-description">Premium pistachios, perfectly roasted and lightly salted. A gourmet snacking experience.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>High in protein, fiber, and healthy fats. Good for eye health and weight management.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Pistachios" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Walnuts -->
+                <div class="product-card" data-category="nuts premium">
+                    <div class="product-image">🌰</div>
+                    <h3>Kashmir Walnuts</h3>
+                    <p class="product-variety">Premium Kashmiri Akhrot</p>
+                    <div class="price-container">
+                        <p class="price">₹600/250g</p>
+                        <p class="price-per-kg">₹2,400/kg</p>
+                    </div>
+                    <p class="product-description">Premium Kashmir walnuts, rich in omega-3 fatty acids. Fresh and crunchy texture.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in omega-3 fatty acids, protein, and antioxidants. Great for brain health.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Kashmir Walnuts" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Dried Figs -->
+                <div class="product-card" data-category="dried-fruits">
+                    <div class="product-image">🥭</div>
+                    <h3>Dried Figs (Anjeer)</h3>
+                    <p class="product-variety">Turkish & Afghan Varieties</p>
+                    <div class="price-container">
+                        <p class="price">₹400/250g</p>
+                        <p class="price-per-kg">₹1,600/kg</p>
+                    </div>
+                    <p class="product-description">Sweet and chewy dried figs, naturally dried and packed with nutrients. A healthy and tasty snack.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in fiber, calcium, and potassium. Good for bone health and digestion.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Dried Figs" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Pumpkin Seeds -->
+                <div class="product-card" data-category="seeds">
+                    <div class="product-image">🎃</div>
+                    <h3>Pumpkin Seeds</h3>
+                    <p class="product-variety">Raw & Roasted Options</p>
+                    <div class="price-container">
+                        <p class="price">₹300/250g</p>
+                        <p class="price-per-kg">₹1,200/kg</p>
+                    </div>
+                    <p class="product-description">Nutritious pumpkin seeds, perfect for healthy snacking. Available in raw and lightly roasted varieties.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in zinc, magnesium, and healthy fats. Good for prostate and heart health.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Pumpkin Seeds" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Sunflower Seeds -->
+                <div class="product-card" data-category="seeds">
+                    <div class="product-image">🌻</div>
+                    <h3>Sunflower Seeds</h3>
+                    <p class="product-variety">Raw & Salted Options</p>
+                    <div class="price-container">
+                        <p class="price">₹250/250g</p>
+                        <p class="price-per-kg">₹1,000/kg</p>
+                    </div>
+                    <p class="product-description">Crunchy sunflower seeds packed with nutrients. Great for snacking and adding to salads.</p>
+                    <div class="benefits">
+                        <h4>Health Benefits:</h4>
+                        <p>Rich in vitamin E, magnesium, and healthy fats. Good for skin and heart health.</p>
+                    </div>
+                    <div class="product-actions">
+                        <a href="/contact.html" class="product-btn">Order Now</a>
+                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Sunflower Seeds" class="whatsapp-btn">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="special-offers">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <h3>Bulk Orders</h3>
+                    <div class="offer-discount">10% OFF</div>
+                    <p>On orders above ₹2,000</p>
+                    <p>Perfect for families and offices</p>
+                </div>
+                <div class="offer-card">
+                    <h3>Festival Special</h3>
+                    <div class="offer-discount">15% OFF</div>
+                    <p>Premium gift packing included</p>
+                    <p>Perfect for gifting during festivals</p>
+                </div>
+                <div class="offer-card">
+                    <h3>First Order</h3>
+                    <div class="offer-discount">5% OFF</div>
+                    <p>For new customers</p>
+                    <p>Use code: WELCOME5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mewantra</h3>
+                    <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="/">Home</a></p>
+                    <p><a href="/products.html">Products</a></p>
+                    <p><a href="/about.html">About Us</a></p>
+                    <p><a href="/contact.html">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 +91 XXXXX XXXXX</p>
+                    <p>📧 orders@mewantra.com</p>
+                    <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Stay connected for latest offers and updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mewantra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        📱
+    </a>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category');
+                        if (categories.includes(filter)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
