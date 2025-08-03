@@ -3,17 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mewantra by MewaRam's</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <title>Mewantra by MewaRam's | Premium Dryfruits</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        // [Your React component code goes here - I can provide this if needed]
-    </script>
+    <header>
+        <div class="logo">
+            <h1>Mewantra by MewaRam's</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>Premium Dryfruits Delivered Fresh</h2>
+        <p>Discover the finest selection of dryfruits curated for quality and taste. Welcome to Mewantra by MewaRam's!</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <div class="product-card">
+                <img src="images/almonds.jpg" alt="Almonds">
+                <h3>Almonds</h3>
+                <p>High-quality, crunchy almonds packed with nutrition.</p>
+            </div>
+            <div class="product-card">
+                <img src="images/cashews.jpg" alt="Cashews">
+                <h3>Cashews</h3>
+                <p>Creamy cashews, perfect for snacking and recipes.</p>
+            </div>
+            <div class="product-card">
+                <img src="images/pistachios.jpg" alt="Pistachios">
+                <h3>Pistachios</h3>
+                <p>Roasted pistachios, rich in flavor and health benefits.</p>
+            </div>
+            <div class="product-card">
+                <img src="images/raisins.jpg" alt="Raisins">
+                <h3>Raisins</h3>
+                <p>Sweet and chewy raisins, a perfect natural treat.</p>
+            </div>
+            <!-- Add more product cards as needed -->
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Founded by MewaRam, Mewantra is dedicated to bringing you the freshest and finest dryfruits. Our legacy is built on quality, trust, and customer satisfaction. Experience premium taste with every bite!
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-info">
+            <p>Email: info@mewantra.com</p>
+            <p>Phone: +91-XXXXXXXXXX</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mewantra by MewaRam's. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
