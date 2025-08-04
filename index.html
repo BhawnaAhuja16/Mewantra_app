@@ -36,6 +36,9 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--background);
+            background-image: url('images/bg_pattern.png');
+            background-repeat: repeat;
+            background-size: 400px 400px; /* Adjust for pattern scale */
         }
 
         .container {
@@ -212,8 +215,10 @@
         }
 
         .product-image {
-            width: 120px;
-            height: 120px;
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            aspect-ratio: 1/1;
             background: var(--secondary);
             border-radius: 50%;
             margin: 0 auto 1rem;
@@ -222,6 +227,14 @@
             justify-content: center;
             font-size: 3rem;
             border: 2px solid var(--border);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
         }
 
         .product-card h3 {
@@ -379,7 +392,7 @@
             <a href="/" class="logo">Mewantra</a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/mewantra-products.html">Products</a></li>
+                <li><a href="/products.html">Products</a></li>
                 <li><a href="/about.html">About</a></li>
                 <li><a href="/contact.html">Contact</a></li>
             </ul>
@@ -393,11 +406,11 @@
             <!-- Dryfruit video background -->
             <div style="position:relative; width:100%; max-width:900px; margin:0 auto;">
                 <video autoplay loop muted playsinline style="width:100%; border-radius:20px; box-shadow:0 8px 32px rgba(56,118,29,0.15); object-fit:cover;">
-                    <source src="media/dryfruits_veed.mp4" type="video/mp4">
+                    <source src="media/dryfruit_veed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <!-- Overlay text (optional) -->
-                <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; color:var(--primary); font-weight:bold; font-size:2.5rem; background:rgba(245,255,240,0.08); pointer-events:none;">
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; color:var(--primary); font-weight:bold; font-size:2.5rem; background:rgba(240, 255, 240, 0.08); pointer-events:none;">
                     <!-- You can add overlay text here if desired -->
                 </div>
             </div>
@@ -448,35 +461,35 @@
                     <button class="product-btn">Order Now</button>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">🌴</div>
+                    <div class="product-image"> <img src="images/dates.jpg" alt="Fresh Dates" /></div>
                     <h3>Fresh Dates</h3>
                     <p class="price">₹350/250g</p>
                     <p class="product-description">Medjool, Ajwa, and Khajoor varieties. Naturally sweet and nutritious.</p>
                     <button class="product-btn">Order Now</button>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">🥜</div>
+                    <div class="product-image"> <img src="images/cashews.jpg" alt="Cashew Nuts" /></div>
                     <h3>Cashew Nuts</h3>
                     <p class="price">₹500/250g</p>
                     <p class="product-description">Premium W240 and W320 grades. Creamy and delicious.</p>
                     <button class="product-btn">Order Now</button>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">🍇</div>
+                    <div class="product-image"> <img src="images/raisins.jpg" alt="Raisins" /></div>
                     <h3>Raisins</h3>
                     <p class="price">₹200/250g</p>
                     <p class="product-description">Golden and black varieties. Perfect for snacking and cooking.</p>
                     <button class="product-btn">Order Now</button>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">🌿</div>
+                    <div class="product-image"> <img src="images/pistachios.jpg" alt="Pistachios" /></div>
                     <h3>Pistachios</h3>
                     <p class="price">₹800/250g</p>
                     <p class="product-description">Iranian and Californian varieties. Perfectly roasted and salted.</p>
                     <button class="product-btn">Order Now</button>
                 </div>
                 <div class="product-card">
-                    <div class="product-image">🌰</div>
+                    <div class="product-image"> <img src="images/kashmiri walnut.jpg" alt="Walnuts" /></div>
                     <h3>Walnuts</h3>
                     <p class="price">₹600/250g</p>
                     <p class="product-description">Kashmir walnuts. Rich in omega-3 fatty acids.</p>
@@ -518,7 +531,7 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <p><a href="/">Home</a></p>
-                    <p><a href="/mewantra-products.html">Products</a></p>
+                    <p><a href="/products.html">Products</a></p>
                     <p><a href="/about.html">About Us</a></p>
                     <p><a href="/contact.html">Contact</a></p>
                 </div>
