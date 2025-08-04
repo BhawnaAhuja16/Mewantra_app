@@ -435,6 +435,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Premium Almonds" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Premium Almonds')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -459,6 +460,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Mamra Almonds" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Mamra Almonds')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -483,6 +485,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Fresh Dates" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Fresh Dates')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -507,6 +510,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Cashew Nuts" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Cashew Nuts')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -531,6 +535,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Premium Raisins" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Premium Raisins')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -555,6 +560,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Pistachios" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Pistachios')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -579,6 +585,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Kashmir Walnuts" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Kashmir Walnuts')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -603,6 +610,7 @@
                     <div class="product-actions">
                         <a href="/contact.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Dried Figs" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Dried Figs')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -627,6 +635,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Pumpkin Seeds" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Pumpkin Seeds')">Add to Cart</button>
                     </div>
                 </div>
 
@@ -651,6 +660,7 @@
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
                         <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Sunflower Seeds" class="whatsapp-btn">WhatsApp</a>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Sunflower Seeds')">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -762,6 +772,11 @@
                 }
             });
         });
+
+        function addToCart(productName) {
+            alert(productName + " has been added to your cart!");
+            // You can expand this function to actually manage a cart in localStorage or backend
+        }
     </script>
 </body>
 </html>

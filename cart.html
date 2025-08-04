@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart & Checkout - Mewantra</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary: #6b3e26;
+            --secondary: #a67c52;
+            --accent: #d2b48c;
+            --background: #f8f5f2;
+            --white: #FFFFFF;
+            --text: #3e2723;
+            --light-text: #a67c52;
+            --border: #d2b48c;
+        }
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 3rem auto;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(107,62,38,0.08);
+            padding: 2rem;
+        }
+        h1 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .cart-list {
+            margin-bottom: 2rem;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item-name {
+            font-weight: bold;
+        }
+        .cart-item-qty {
+            margin: 0 1rem;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        .checkout-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .checkout-form input, .checkout-form textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .checkout-btn {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .checkout-btn:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+        .empty-cart {
+            text-align: center;
+            color: var(--light-text);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart & Checkout</h1>
+        <div id="cart-list" class="cart-list"></div>
+        <div class="cart-total" id="cart-total"></div>
+        <form class="checkout-form" id="checkout-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required maxlength="10" pattern="[0-9]{10}">
+            <label for="address">Delivery Address</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+            <button type="submit" class="checkout-btn">Place Order</button>
+            <button type="button" class="checkout-btn" id="pay-btn" style="margin-top:1rem;">Pay Now</button>
+        </form>
+        <div id="order-success" style="display:none; text-align:center; color:var(--primary); font-weight:bold; margin-top:2rem;">
+            Thank you for your order! We will contact you soon.
+        </div>
+    </div>
+    <script>
+        // Simple cart logic using localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
+        }
+        function setCart(cart) {
+            localStorage.setItem('mewantra_cart', JSON.stringify(cart));
+        }
+        function removeFromCart(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            setCart(cart);
+            renderCart();
+        }
+        function renderCart() {
+            const cart = getCart();
+            const cartList = document.getElementById('cart-list');
+            const cartTotal = document.getElementById('cart-total');
+            if (cart.length === 0) {
+                cartList.innerHTML = '<div class="empty-cart">Your cart is empty.</div>';
+                cartTotal.textContent = '';
+                document.getElementById('checkout-form').style.display = 'none';
+                return;
+            }
+            let total = 0;
+            cartList.innerHTML = cart.map((item, idx) => {
+                total += item.price * item.qty;
+                return `
+                    <div class="cart-item">
+                        <span class="cart-item-name">${item.name}</span>
+                        <span class="cart-item-qty">x${item.qty}</span>
+                        <span>₹${item.price * item.qty}</span>
+                        <button onclick="removeFromCart(${idx})" style="background:none;border:none;color:var(--secondary);cursor:pointer;">Remove</button>
+                    </div>
+                `;
+            }).join('');
+            cartTotal.textContent = "Total: ₹" + total;
+            document.getElementById('checkout-form').style.display = 'block';
+        }
+        // On checkout submit
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // You can send order details to backend here
+            setCart([]);
+            renderCart();
+            document.getElementById('order-success').style.display = 'block';
+        });
+        // Payment link logic
+        document.getElementById('pay-btn').addEventListener('click', function() {
+            // Example: Redirect to a payment gateway or UPI link
+            window.open('https://paytm.me/your-payment-link', '_blank');
+        });
+        // Initial render
+        renderCart();
+    </script>
+</body>
+</html>
