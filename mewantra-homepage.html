@@ -21,14 +21,14 @@
         }
 
         :root {
-            --primary: #4e6e5d;        /* Soft Forest Green */
-            --secondary: #b8c6a6;      /* Gentle Sage */
-            --accent: #e6cba5;         /* Warm Sand */
-            --background: #f6f8f3;     /* Gentle Off-White Green */
+            --primary: #8B0000;        /* Dark Red (Luxurious) */
+            --secondary: #B22222;      /* Firebrick Red */
+            --accent: #C1440E;         /* Rich Copper Red */
+            --background: #2d0a0a;     /* Deep Wine Red */
             --white: #FFFFFF;
-            --text: #3a4a3f;           /* Deep Olive */
-            --light-text: #7a9c7e;     /* Muted Sage */
-            --border: #dbe6d2;         /* Pale Green */
+            --text: #f5e6e6;           /* Soft Rose for text */
+            --light-text: #e9967a;     /* Light Salmon */
+            --border: #a0522d;         /* Sienna */
         }
 
         body {
@@ -46,8 +46,8 @@
 
         /* Header & Navigation */
         header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(78,110,93,0.07);
+            background: var(--primary);
+            box-shadow: 0 2px 10px rgba(139,0,0,0.07);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -196,11 +196,11 @@
         }
 
         .product-card {
-            background: var(--white);
+            background: var(--primary);
             border-radius: 15px;
             padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(78,110,93,0.08);
+            box-shadow: 0 5px 15px rgba(139,0,0,0.08);
             transition: all 0.3s ease;
             color: var(--text);
             border: 1px solid var(--border);
@@ -244,7 +244,7 @@
 
         .product-btn {
             background: var(--accent);
-            color: var(--primary);
+            color: var(--white);
             border: none;
             padding: 0.7rem 1.5rem;
             border-radius: 25px;
@@ -323,7 +323,7 @@
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
-            color: var(--primary);
+            color: var(--accent);
         }
 
         /* Responsive Design */
