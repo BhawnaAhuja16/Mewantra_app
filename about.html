@@ -98,6 +98,15 @@
             background: var(--secondary);
         }
 
+        .cart-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         /* Page Header */
         .page-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -481,15 +490,22 @@
 <body>
     <!-- Header -->
     <header>
-        <nav class="container">
-            <a href="/" class="logo">Mewantra</a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/products.html">Products</a></li>
-                <li><a href="/about.html" class="active">About</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-            <a href="/contact.html" class="contact-btn">Order Now</a>
+        <nav class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center;">
+                <a href="/" class="logo">Mewantra</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products.html">Products</a></li>
+                    <li><a href="/about.html" class="active">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="/cart.html" class="cart-btn" style="background: var(--accent); color: var(--primary); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                    🛒 Cart
+                </a>
+                <a href="/contact.html" class="contact-btn">Order Now</a>
+            </div>
         </nav>
     </header>
 
