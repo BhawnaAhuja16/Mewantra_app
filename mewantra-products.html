@@ -36,6 +36,12 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--background);
+            /* Removed background image and blend mode */
+        }
+
+        body::before {
+            content: "";
+            display: none; /* Remove pseudo background image */
         }
 
         .container {
