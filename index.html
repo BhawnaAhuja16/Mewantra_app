@@ -105,6 +105,8 @@
             background: linear-gradient(135deg, #14213d 0%, #274472 100%);
             padding: 4rem 0;
             text-align: center;
+            position:relative;
+            overflow:hidden;
         }
 
         .hero h1 {
@@ -401,24 +403,20 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #14213d 0%, #274472 100%);">
-        <div class="container">
-            <!-- Dryfruit video background -->
-            <div style="position:relative; width:100%; max-width:900px; margin:0 auto;">
-                <video autoplay loop muted playsinline style="width:100%; border-radius:20px; box-shadow:0 8px 32px rgba(56,118,29,0.15); object-fit:cover;">
-                    <source src="media/dryfruit_veed.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- Overlay text (optional) -->
-                <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; color:var(--primary); font-weight:bold; font-size:2.5rem; background:rgba(240, 255, 240, 0.08); pointer-events:none;">
-                    <!-- You can add overlay text here if desired -->
-                </div>
-            </div>
+    <section class="hero" style="background: linear-gradient(135deg, #14213d 0%, #274472 100%); position:relative; overflow:hidden;">
+        <video autoplay loop muted playsinline
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+            <source src="media/dryfruit_veed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container" style="position:relative; z-index:1;">
             <h1>Mewantra</h1>
             <p class="tagline">Premium Quality Dry Fruits & Nuts</p>
             <p class="subtitle">Freshness delivered to your doorstep</p>
             <a href="#products" class="cta-button">Shop Now</a>
         </div>
+        <!-- Optional overlay for readability -->
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(240,255,240,0.08); z-index:0;"></div>
     </section>
 
     <!-- Trust Indicators -->
