@@ -22,21 +22,20 @@
 
         /* Apply this :root block to all your pages for a consistent chocolate-rich color theme */
         :root {
-            --primary: #6b3e26;        /* Rich Chocolate Brown */
-            --secondary: #a67c52;      /* Light Milk Chocolate */
-            --accent: #d2b48c;         /* Caramel Tan */
-            --background: #f8f5f2;     /* Creamy Off-White */
-            --white: #FFFFFF;
-            --text: #3e2723;           /* Deep Dark Chocolate */
-            --light-text: #a67c52;     /* Light Milk Chocolate */
-            --border: #d2b48c;         /* Caramel Tan */
+            --primary: #fff8e1;        /* Creamy White (background) */
+            --secondary: #f5e2b8;      /* Light Golden (card background) */
+            --accent: #bfa054;         /* Rich Gold (buttons, highlights) */
+            --navy: #1a2238;           /* Deep Navy (header/nav) */
+            --text: #1a2238;           /* Navy for main text */
+            --light-text: #bfa054;     /* Gold for secondary text */
+            --border: #bfa054;         /* Gold for borders */
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: var(--background);
+            background-color: var(--primary);
         }
 
         .container {
@@ -47,7 +46,7 @@
 
         /* Header & Navigation */
         header {
-            background: var(--secondary); /* Light Milk Chocolate */
+            background: var(--navy);
             box-shadow: none;
             border: none;
             position: sticky;
@@ -70,68 +69,59 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text);
+            color: var(--accent);
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: var(--primary);
+            color: var(--secondary);
         }
 
-        .contact-btn {
+        .contact-btn, .cart-btn {
             background: var(--accent);
-            color: var(--primary);
+            color: var(--navy);
             padding: 0.5rem 1.5rem;
             border-radius: 25px;
             text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background: var(--secondary);
-        }
-
-        .cart-btn {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.5rem 1.2rem;
-            border-radius: 25px;
-            text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease;
+            border: none;
         }
 
-        .cart-btn:hover {
+        .contact-btn:hover, .cart-btn:hover {
             background: var(--secondary);
+            color: var(--navy);
         }
 
         /* Page Header */
         .page-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
+            background: var(--navy);
+            color: var(--accent);
             padding: 3rem 0;
             text-align: center;
-            border: none;     /* Remove border */
-            box-shadow: none; /* Remove shadow */
+            border: none;
+            box-shadow: none;
         }
 
         .page-header h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            color: var(--accent);
         }
 
         .page-header p {
             font-size: 1.2rem;
             opacity: 0.9;
+            color: var(--secondary);
         }
 
         /* Filter Section */
         .filter-section {
-            background: var(--white);
+            background: var(--primary);
             padding: 2rem 0;
-            border-bottom: none; /* Remove bottom border */
-            box-shadow: none;    /* Remove shadow */
+            border-bottom: none;
+            box-shadow: none;
         }
 
         .filter-container {
@@ -142,9 +132,9 @@
         }
 
         .filter-btn {
-            background: var(--background);
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            background: var(--secondary);
+            border: 2px solid var(--accent);
+            color: var(--navy);
             padding: 0.7rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
@@ -153,8 +143,8 @@
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--accent);
+            color: var(--primary);
         }
 
         /* Products Grid */
@@ -164,76 +154,75 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            background: none;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            background: var(--primary); /* Matches the page background */
             border: none;
         }
 
         .product-card {
-            background: var(--white);
-            border-radius: 25px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(107,62,38,0.08);
+            background: var(--primary); /* Same as grid and page background */
+            border: 1px solid #f5e2b8;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(26,34,56,0.08);
             transition: box-shadow 0.3s, transform 0.3s;
             position: relative;
             overflow: hidden;
-            border: none; /* Remove border */
-        }
-
-        .product-card::before {
-            display: none; /* Remove top accent border */
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
         }
 
         .product-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 16px 40px rgba(107,62,38,0.13);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 8px 32px rgba(191,160,84,0.13);
         }
 
         .product-image {
-            width: 120px;
-            height: 120px;
-            background: var(--secondary);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            width: 100%;
+            height: 220px;
+            background: var(--primary); /* Match grid/page background */
+            border-radius: 18px 18px 0 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            border: 3px solid var(--border);
+            overflow: hidden;
+            border-bottom: 1px solid #f5e2b8;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 0;
         }
 
         .product-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin: 1.2rem 1.2rem 0.5rem 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
         }
 
         .product-variety {
-            font-size: 0.9rem;
-            color: var(--light-text);
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin: 0 1.2rem 0.7rem 1.2rem;
             font-style: italic;
         }
 
         .price-container {
-            margin-bottom: 1rem;
+            margin: 0 1.2rem 0.7rem 1.2rem;
         }
 
         .price {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 0.3rem;
+            color: var(--accent);
+            margin-bottom: 0.2rem;
         }
 
         .price-per-kg {
@@ -241,63 +230,25 @@
             color: var(--light-text);
         }
 
-        .product-description {
-            color: var(--light-text);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .product-btn {
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .product-btn:hover {
-            background: var(--secondary);
-            color: var(--white);
-        }
-
         /* Footer */
         footer {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--navy);
+            color: var(--accent);
             padding: 3rem 0 1rem;
             margin-top: 3rem;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
+        .footer-content h3 {
             color: var(--accent);
         }
 
         .footer-section p, .footer-section a {
-            color: #d2b48c;
+            color: var(--accent);
             text-decoration: none;
         }
 
         .footer-section a:hover {
-            color: var(--white);
+            color: var(--secondary);
         }
 
         .footer-bottom {
@@ -305,6 +256,80 @@
             padding-top: 2rem;
             border-top: 1px solid var(--accent);
             color: var(--accent);
+        }
+
+        /* Special Offers Popup */
+        .special-offers-popup {
+            background: var(--primary);
+            padding: 3rem 0;
+        }
+
+        .offers-popup-grid {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .offer-popup {
+            background: var(--navy);
+            color: var(--accent);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(26,34,56,0.10);
+            padding: 2rem 1.5rem;
+            min-width: 260px;
+            max-width: 320px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .offer-popup:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(191,160,84,0.18);
+        }
+
+        .offer-popup h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+
+        .offer-discount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.7rem;
+        }
+
+        .offer-details {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+        }
+
+        .offer-link {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--navy);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .offer-link:hover {
+            background: var(--secondary);
+            color: var(--navy);
+        }
+
+        @media (max-width: 900px) {
+            .offers-popup-grid {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         /* Responsive Design */
@@ -327,6 +352,19 @@
 
             .product-actions {
                 flex-direction: column;
+            }
+        }
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-image {
+                height: 180px;
             }
         }
 
@@ -360,17 +398,19 @@
 <body>
     <!-- Header -->
     <header>
-        <nav class="container" style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center;">
-                <a href="/" class="logo">Mewantra</a>
-                <ul class="nav-links">
+        <nav class="container" style="display: flex; flex-direction: column; align-items: stretch; padding-top: 1.2rem; padding-bottom: 1.2rem;">
+            <div style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
+                <a href="/" class="logo" style="font-size: 2.8rem; font-weight: bold; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; display: inline-block;">
+                    Mewantra
+                </a>
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 2rem;">
+                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0;">
                     <li><a href="/">Home</a></li>
                     <li><a href="/products.html" class="active">Products</a></li>
                     <li><a href="/about.html">About</a></li>
                     <li><a href="/contact.html">Contact</a></li>
                 </ul>
-            </div>
-            <div style="display: flex; align-items: center; gap: 1rem;">
                 <a href="/cart.html" class="cart-btn" style="background: var(--accent); color: var(--primary); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
                     🛒 Cart
                 </a>
@@ -411,29 +451,12 @@
                             <img src="images/almonds.jpg" alt="Premium Almonds" />
                         </div>
                         <h3>Premium Almonds</h3>
+                        <p class="product-variety">California & Kashmiri Varieties</p>
+                        <div class="price-container">
+                            <p class="price">₹450/250g</p>
+                            <p class="price-per-kg">₹1,800/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">California & Kashmiri Varieties</p>
-                    <div class="price-container">
-                        <p class="price">₹450/250g</p>
-                        <p class="price-per-kg">₹1,800/kg</p>
-                    </div>
-                    <p class="product-description">Hand-selected premium almonds rich in protein, healthy fats, and vitamin E. Perfect for snacking and cooking.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Mamra Almonds -->
@@ -443,29 +466,12 @@
                             <img src="images/mamra-almonds.jpg" alt="Mamra Almonds" />
                         </div>
                         <h3>Mamra Almonds</h3>
+                        <p class="product-variety">Premium Iranian Mamra</p>
+                        <div class="price-container">
+                            <p class="price">₹650/250g</p>
+                            <p class="price-per-kg">₹2,600/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Premium Iranian Mamra</p>
-                    <div class="price-container">
-                        <p class="price">₹650/250g</p>
-                        <p class="price-per-kg">₹2,600/kg</p>
-                    </div>
-                    <p class="product-description">Authentic Mamra almonds, known for their high oil content and superior taste. Sourced directly from Iran for maximum freshness.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Dates -->
@@ -475,29 +481,12 @@
                             <img src="images/dates2.jpeg" alt="Fresh Dates" />
                         </div>
                         <h3>Fresh Dates</h3>
+                        <p class="product-variety">Medjool, Ajwa & Khajoor</p>
+                        <div class="price-container">
+                            <p class="price">₹350/250g</p>
+                            <p class="price-per-kg">₹1,400/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Medjool, Ajwa & Khajoor</p>
-                    <div class="price-container">
-                        <p class="price">₹350/250g</p>
-                        <p class="price-per-kg">₹1,400/kg</p>
-                    </div>
-                    <p class="product-description">Premium quality dates from the finest sources. Naturally sweet and packed with nutrients.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Cashews -->
@@ -507,29 +496,12 @@
                             <img src="images/cashews.jpg" alt="Cashew Nuts" />
                         </div>
                         <h3>Cashew Nuts</h3>
+                        <p class="product-variety">W240 & W320 Grades</p>
+                        <div class="price-container">
+                            <p class="price">₹500/250g</p>
+                            <p class="price-per-kg">₹2,000/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">W240 & W320 Grades</p>
-                    <div class="price-container">
-                        <p class="price">₹500/250g</p>
-                        <p class="price-per-kg">₹2,000/kg</p>
-                    </div>
-                    <p class="product-description">Premium grade cashews, creamy and delicious. Perfect for cooking and snacking.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Raisins -->
@@ -539,29 +511,12 @@
                             <img src="images/raisins-golden.jpg" alt="Premium Raisins" />
                         </div>
                         <h3>Premium Raisins</h3>
+                        <p class="product-variety">Golden & Black Varieties</p>
+                        <div class="price-container">
+                            <p class="price">₹200/250g</p>
+                            <p class="price-per-kg">₹800/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Golden & Black Varieties</p>
-                    <div class="price-container">
-                        <p class="price">₹200/250g</p>
-                        <p class="price-per-kg">₹800/kg</p>
-                    </div>
-                    <p class="product-description">Sweet and chewy raisins perfect for snacking, baking, and cooking. Naturally dried and preserved.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Pistachios -->
@@ -571,29 +526,12 @@
                             <img src="images/pista.jpeg" alt="Pistachios" />
                         </div>
                         <h3>Pistachios</h3>
+                        <p class="product-variety">Iranian & Californian</p>
+                        <div class="price-container">
+                            <p class="price">₹800/250g</p>
+                            <p class="price-per-kg">₹3,200/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Iranian & Californian</p>
-                    <div class="price-container">
-                        <p class="price">₹800/250g</p>
-                        <p class="price-per-kg">₹3,200/kg</p>
-                    </div>
-                    <p class="product-description">Premium pistachios, perfectly roasted and lightly salted. A gourmet snacking experience.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Walnuts -->
@@ -603,29 +541,12 @@
                             <img src="images/walnuts.jpg" alt="Kashmir Walnuts" />
                         </div>
                         <h3>Kashmir Walnuts</h3>
+                        <p class="product-variety">Premium Kashmiri Akhrot</p>
+                        <div class="price-container">
+                            <p class="price">₹600/250g</p>
+                            <p class="price-per-kg">₹2,400/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Premium Kashmiri Akhrot</p>
-                    <div class="price-container">
-                        <p class="price">₹600/250g</p>
-                        <p class="price-per-kg">₹2,400/kg</p>
-                    </div>
-                    <p class="product-description">Premium Kashmir walnuts, rich in omega-3 fatty acids. Fresh and crunchy texture.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Dried Figs -->
@@ -635,29 +556,12 @@
                             <img src="images/figs0.jpeg" alt="Dried Figs (Anjeer)" />
                         </div>
                         <h3>Dried Figs (Anjeer)</h3>
+                        <p class="product-variety">Turkish & Afghan Varieties</p>
+                        <div class="price-container">
+                            <p class="price">₹400/250g</p>
+                            <p class="price-per-kg">₹1,600/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Turkish & Afghan Varieties</p>
-                    <div class="price-container">
-                        <p class="price">₹400/250g</p>
-                        <p class="price-per-kg">₹1,600/kg</p>
-                    </div>
-                    <p class="product-description">Sweet and chewy dried figs, naturally dried and packed with nutrients. A healthy and tasty snack.</p>
-                    <div class="product-actions">
-                        <a href="/contact.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Pumpkin Seeds -->
@@ -667,29 +571,12 @@
                             <img src="images/pumpkin2.jpeg" alt="Pumpkin Seeds" />
                         </div>
                         <h3>Pumpkin Seeds</h3>
+                        <p class="product-variety">Raw & Roasted Options</p>
+                        <div class="price-container">
+                            <p class="price">₹300/250g</p>
+                            <p class="price-per-kg">₹1,200/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Raw & Roasted Options</p>
-                    <div class="price-container">
-                        <p class="price">₹300/250g</p>
-                        <p class="price-per-kg">₹1,200/kg</p>
-                    </div>
-                    <p class="product-description">Nutritious pumpkin seeds, perfect for healthy snacking. Available in raw and lightly roasted varieties.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
 
                 <!-- Sunflower Seeds -->
@@ -699,56 +586,39 @@
                             <img src="images/sunflower.jpeg" alt="Sunflower Seeds" />
                         </div>
                         <h3>Sunflower Seeds</h3>
+                        <p class="product-variety">Raw & Salted Options</p>
+                        <div class="price-container">
+                            <p class="price">₹250/250g</p>
+                            <p class="price-per-kg">₹1,000/kg</p>
+                        </div>
                     </a>
-                    <p class="product-variety">Raw & Salted Options</p>
-                    <div class="price-container">
-                        <p class="price">₹250/250g</p>
-                        <p class="price-per-kg">₹1,000/kg</p>
-                    </div>
-                    <p class="product-description">Crunchy sunflower seeds packed with nutrients. Great for snacking and adding to salads.</p>
-                    <div class="product-actions">
-                        <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Special Offers -->
-    <section class="special-offers">
+    <!-- Special Offers Popup -->
+    <section class="special-offers-popup">
         <div class="container">
             <h2 class="section-title">Special Offers</h2>
-            <div class="offers-grid">
-                <div class="offer-card">
+            <div class="offers-popup-grid">
+                <div class="offer-popup">
                     <h3>Bulk Orders</h3>
-                    <div class="offer-discount">10% OFF</div>
-                    <p>On orders above ₹2,000</p>
-                    <p>Perfect for families and offices</p>
+                    <p class="offer-discount">10% OFF</p>
+                    <p class="offer-details">On orders above ₹2,000<br>Perfect for families and offices</p>
+                    <a href="/contact.html" class="offer-link">Contact Us</a>
                 </div>
-                <div class="offer-card">
+                <div class="offer-popup">
                     <h3>Festival Special</h3>
-                    <div class="offer-discount">15% OFF</div>
-                    <p>Premium gift packing included</p>
-                    <p>Perfect for gifting during festivals</p>
+                    <p class="offer-discount">15% OFF</p>
+                    <p class="offer-details">Premium gift packing included<br>Perfect for gifting during festivals</p>
+                    <a href="/products.html" class="offer-link">View Products</a>
                 </div>
-                <div class="offer-card">
+                <div class="offer-popup">
                     <h3>First Order</h3>
-                    <div class="offer-discount">5% OFF</div>
-                    <p>For new customers</p>
-                    <p>Use code: WELCOME5</p>
+                    <p class="offer-discount">5% OFF</p>
+                    <p class="offer-details">For new customers<br>Use code: WELCOME5</p>
+                    <a href="/orderNow.html" class="offer-link">Order Now</a>
                 </div>
             </div>
         </div>
@@ -757,30 +627,30 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; text-align: left;">
+                <div class="footer-section" style="flex: 1; min-width: 220px; margin-right: 2rem;">
                     <h3>Mewantra</h3>
                     <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
                     <h3>Quick Links</h3>
                     <p><a href="/">Home</a></p>
                     <p><a href="/products.html">Products</a></p>
                     <p><a href="/about.html">About Us</a></p>
                     <p><a href="/contact.html">Contact</a></p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
                     <h3>Contact Info</h3>
                     <p>📞 +91 XXXXX XXXXX</p>
                     <p>📧 orders@mewantra.com</p>
                     <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
                     <h3>Follow Us</h3>
                     <p>Stay connected for latest offers and updates</p>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom" style="text-align: center; margin-top: 2rem;">
                 <p>&copy; 2025 Mewantra. All rights reserved.</p>
             </div>
         </div>

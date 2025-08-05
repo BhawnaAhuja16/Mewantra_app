@@ -94,9 +94,81 @@
             color: var(--light-text);
             margin: 2rem 0;
         }
+        .quick-add-section {
+            background: var(--secondary);
+            padding: 2rem 0;
+        }
+        .quick-add-section h2 {
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .quick-add-product {
+            background: var(--primary);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(26,34,56,0.08);
+            padding: 1rem;
+            min-width: 140px;
+            text-align: center;
+        }
+        .quick-add-product img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        .quick-add-product-name {
+            font-weight: bold;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+        .quick-add-product-price {
+            color: var(--accent);
+            margin-bottom: 0.7rem;
+        }
+        .add-to-cart-btn {
+            background: var(--accent);
+            color: var(--navy);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav class="container" style="display: flex; flex-direction: column; align-items: stretch; padding-top: 1.2rem; padding-bottom: 1.2rem;">
+            <div style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
+                <a href="/" class="logo" style="font-size: 2.8rem; font-weight: bold; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; display: inline-block;">
+                    Mewantra
+                </a>
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 2rem;">
+                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0;">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products.html">Products</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/cart.html" class="active">Cart</a></li>
+                </ul>
+                <a href="/orderNow.html" class="contact-btn" style="background: var(--accent); color: var(--navy); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                    Order Now
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="quick-add-section" style="background: var(--secondary); padding: 2rem 0;">
+        <div class="container" style="max-width: 700px;">
+            <h2 style="color: var(--navy); text-align: center; margin-bottom: 1.5rem;">Quick Add From Your Browsing History</h2>
+            <div id="quick-add-products" style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;"></div>
+        </div>
+    </section>
+
     <div class="container">
         <h1>Your Cart & Checkout</h1>
         <div id="cart-list" class="cart-list"></div>
@@ -115,6 +187,39 @@
             Thank you for your order! We will contact you soon.
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; text-align: left;">
+                <div class="footer-section" style="flex: 1; min-width: 220px; margin-right: 2rem;">
+                    <h3>Mewantra</h3>
+                    <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
+                </div>
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                    <h3>Quick Links</h3>
+                    <p><a href="/">Home</a></p>
+                    <p><a href="/products.html">Products</a></p>
+                    <p><a href="/about.html">About Us</a></p>
+                    <p><a href="/contact.html">Contact</a></p>
+                    <p><a href="/cart.html">Cart</a></p>
+                </div>
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                    <h3>Contact Info</h3>
+                    <p>📞 +91 XXXXX XXXXX</p>
+                    <p>📧 orders@mewantra.com</p>
+                    <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
+                </div>
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                    <h3>Follow Us</h3>
+                    <p>Stay connected for latest offers and updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; margin-top: 2rem;">
+                <p>&copy; 2025 Mewantra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
     <script>
         // Simple cart logic using localStorage
         function getCart() {
@@ -167,6 +272,40 @@
             // Example: Redirect to a payment gateway or UPI link
             window.open('https://paytm.me/your-payment-link', '_blank');
         });
+        // Quick Add section logic
+        function getHistory() {
+            return JSON.parse(localStorage.getItem('mewantra_history') || '[]');
+        }
+        function addToCartQuick(product) {
+            let cart = JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
+            // Check if already in cart
+            const idx = cart.findIndex(item => item.name === product.name);
+            if (idx > -1) {
+                cart[idx].qty += 1;
+            } else {
+                cart.push({ name: product.name, price: product.price, qty: 1 });
+            }
+            localStorage.setItem('mewantra_cart', JSON.stringify(cart));
+            renderCart();
+        }
+        function renderQuickAdd() {
+            const products = getHistory();
+            const container = document.getElementById('quick-add-products');
+            if (!products.length) {
+                container.innerHTML = '<div style="color: var(--navy);">No recent products found.</div>';
+                return;
+            }
+            container.innerHTML = products.slice(-4).reverse().map(product => `
+                <div class="quick-add-product" style="background: var(--primary); border-radius: 12px; box-shadow: 0 2px 8px rgba(26,34,56,0.08); padding: 1rem; min-width: 140px; text-align: center;">
+                    <img src="${product.img}" alt="${product.name}" style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px; margin-bottom: 0.5rem;">
+                    <div class="quick-add-product-name" style="font-weight: bold; color: var(--navy); margin-bottom: 0.3rem;">${product.name}</div>
+                    <div class="quick-add-product-price" style="color: var(--accent); margin-bottom: 0.7rem;">₹${product.price}</div>
+                    <button onclick='addToCartQuick(${JSON.stringify(product)})' class="add-to-cart-btn" style="background: var(--accent); color: var(--navy); border: none; padding: 0.5rem 1.2rem; border-radius: 20px; cursor: pointer; font-weight: 500;">Add to Cart</button>
+                </div>
+            `).join('');
+        }
+        // Render quick add section on page load
+        renderQuickAdd();
         // Initial render
         renderCart();
     </script>
