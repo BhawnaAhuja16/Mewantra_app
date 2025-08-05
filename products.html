@@ -47,8 +47,9 @@
 
         /* Header & Navigation */
         header {
-            background: var(--primary);
-            box-shadow: 0 2px 10px rgba(107,62,38,0.07);
+            background: var(--secondary); /* Light Milk Chocolate */
+            box-shadow: none;
+            border: none;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -111,6 +112,8 @@
             color: var(--white);
             padding: 3rem 0;
             text-align: center;
+            border: none;     /* Remove border */
+            box-shadow: none; /* Remove shadow */
         }
 
         .page-header h1 {
@@ -127,7 +130,8 @@
         .filter-section {
             background: var(--white);
             padding: 2rem 0;
-            border-bottom: 1px solid var(--border);
+            border-bottom: none; /* Remove bottom border */
+            box-shadow: none;    /* Remove shadow */
         }
 
         .filter-container {
@@ -163,32 +167,29 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            background: none;
+            border: none;
         }
 
         .product-card {
             background: var(--white);
-            border-radius: 15px;
+            border-radius: 25px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(107,62,38,0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(107,62,38,0.08);
+            transition: box-shadow 0.3s, transform 0.3s;
             position: relative;
             overflow: hidden;
+            border: none; /* Remove border */
         }
 
         .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            display: none; /* Remove top accent border */
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(107,62,38,0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(107,62,38,0.13);
         }
 
         .product-image {
@@ -246,20 +247,6 @@
             line-height: 1.5;
         }
 
-        .benefits {
-            background: var(--background);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .benefits h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
         .product-actions {
             display: flex;
             gap: 1rem;
@@ -282,24 +269,6 @@
         .product-btn:hover {
             background: var(--secondary);
             color: var(--white);
-        }
-
-        .whatsapp-btn {
-            background: #25d366;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128c7e;
-            transform: translateY(-2px);
         }
 
         /* Footer */
@@ -449,14 +418,21 @@
                         <p class="price-per-kg">₹1,800/kg</p>
                     </div>
                     <p class="product-description">Hand-selected premium almonds rich in protein, healthy fats, and vitamin E. Perfect for snacking and cooking.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in protein, healthy fats, vitamin E, and magnesium. Good for heart health and brain function.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Premium Almonds" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Premium Almonds')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -474,14 +450,21 @@
                         <p class="price-per-kg">₹2,600/kg</p>
                     </div>
                     <p class="product-description">Authentic Mamra almonds, known for their high oil content and superior taste. Sourced directly from Iran for maximum freshness.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>High in healthy fats, protein, and antioxidants. Supports heart health, brain function, and overall wellness.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Mamra Almonds" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Mamra Almonds')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -489,7 +472,7 @@
                 <div class="product-card" data-category="dried-fruits premium">
                     <a href="product-details/dates.html" style="text-decoration:none; color:inherit;">
                         <div class="product-image">
-                            <img src="images/dates.jpg" alt="Fresh Dates" />
+                            <img src="images/dates2.jpeg" alt="Fresh Dates" />
                         </div>
                         <h3>Fresh Dates</h3>
                     </a>
@@ -499,14 +482,21 @@
                         <p class="price-per-kg">₹1,400/kg</p>
                     </div>
                     <p class="product-description">Premium quality dates from the finest sources. Naturally sweet and packed with nutrients.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Natural energy source, rich in fiber, potassium, and antioxidants. Great for digestive health.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Fresh Dates" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Fresh Dates')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -524,14 +514,21 @@
                         <p class="price-per-kg">₹2,000/kg</p>
                     </div>
                     <p class="product-description">Premium grade cashews, creamy and delicious. Perfect for cooking and snacking.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in healthy fats, protein, and minerals. Good for heart health and weight management.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Cashew Nuts" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Cashew Nuts')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -539,7 +536,7 @@
                 <div class="product-card" data-category="dried-fruits">
                     <a href="product-details/raisins.html" style="text-decoration:none; color:inherit;">
                         <div class="product-image">
-                            <img src="images/raisins.jpg" alt="Premium Raisins" />
+                            <img src="images/raisins-golden.jpg" alt="Premium Raisins" />
                         </div>
                         <h3>Premium Raisins</h3>
                     </a>
@@ -549,14 +546,21 @@
                         <p class="price-per-kg">₹800/kg</p>
                     </div>
                     <p class="product-description">Sweet and chewy raisins perfect for snacking, baking, and cooking. Naturally dried and preserved.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in iron, potassium, and antioxidants. Good for bone health and energy.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Premium Raisins" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Premium Raisins')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -564,7 +568,7 @@
                 <div class="product-card" data-category="nuts premium">
                     <a href="product-details/pistachios.html" style="text-decoration:none; color:inherit;">
                         <div class="product-image">
-                            <img src="images/pistachios.jpg" alt="Pistachios" />
+                            <img src="images/pista.jpeg" alt="Pistachios" />
                         </div>
                         <h3>Pistachios</h3>
                     </a>
@@ -574,14 +578,21 @@
                         <p class="price-per-kg">₹3,200/kg</p>
                     </div>
                     <p class="product-description">Premium pistachios, perfectly roasted and lightly salted. A gourmet snacking experience.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>High in protein, fiber, and healthy fats. Good for eye health and weight management.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Pistachios" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Pistachios')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -599,14 +610,21 @@
                         <p class="price-per-kg">₹2,400/kg</p>
                     </div>
                     <p class="product-description">Premium Kashmir walnuts, rich in omega-3 fatty acids. Fresh and crunchy texture.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in omega-3 fatty acids, protein, and antioxidants. Great for brain health.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Kashmir Walnuts" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Kashmir Walnuts')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -614,7 +632,7 @@
                 <div class="product-card" data-category="dried-fruits">
                     <a href="product-details/figs.html" style="text-decoration:none; color:inherit;">
                         <div class="product-image">
-                            <img src="images/figs.jpg" alt="Dried Figs (Anjeer)" />
+                            <img src="images/figs0.jpeg" alt="Dried Figs (Anjeer)" />
                         </div>
                         <h3>Dried Figs (Anjeer)</h3>
                     </a>
@@ -624,14 +642,21 @@
                         <p class="price-per-kg">₹1,600/kg</p>
                     </div>
                     <p class="product-description">Sweet and chewy dried figs, naturally dried and packed with nutrients. A healthy and tasty snack.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in fiber, calcium, and potassium. Good for bone health and digestion.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/contact.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Dried Figs" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Dried Figs')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -639,7 +664,7 @@
                 <div class="product-card" data-category="seeds">
                     <a href="product-details/pumpkin-seeds.html" style="text-decoration:none; color:inherit;">
                         <div class="product-image">
-                            <img src="images/pumpkin-seeds.jpg" alt="Pumpkin Seeds" />
+                            <img src="images/pumpkin2.jpeg" alt="Pumpkin Seeds" />
                         </div>
                         <h3>Pumpkin Seeds</h3>
                     </a>
@@ -649,14 +674,21 @@
                         <p class="price-per-kg">₹1,200/kg</p>
                     </div>
                     <p class="product-description">Nutritious pumpkin seeds, perfect for healthy snacking. Available in raw and lightly roasted varieties.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in zinc, magnesium, and healthy fats. Good for prostate and heart health.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Pumpkin Seeds" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Pumpkin Seeds')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
 
@@ -664,7 +696,7 @@
                 <div class="product-card" data-category="seeds">
                     <a href="product-details/sunflower-seeds.html" style="text-decoration:none; color:inherit;">
                         <div class="product-image">
-                            <img src="images/sunflower-seeds.jpg" alt="Sunflower Seeds" />
+                            <img src="images/sunflower.jpeg" alt="Sunflower Seeds" />
                         </div>
                         <h3>Sunflower Seeds</h3>
                     </a>
@@ -674,14 +706,21 @@
                         <p class="price-per-kg">₹1,000/kg</p>
                     </div>
                     <p class="product-description">Crunchy sunflower seeds packed with nutrients. Great for snacking and adding to salads.</p>
-                    <div class="benefits">
-                        <h4>Health Benefits:</h4>
-                        <p>Rich in vitamin E, magnesium, and healthy fats. Good for skin and heart health.</p>
-                    </div>
                     <div class="product-actions">
                         <a href="/orderNow.html" class="product-btn">Order Now</a>
-                        <a href="https://wa.me/91XXXXXXXXXX?text=I want to order Sunflower Seeds" class="whatsapp-btn">WhatsApp</a>
-                        <button class="product-btn add-to-cart-btn" onclick="addToCart('Sunflower Seeds')">Add to Cart</button>
+                        <select class="product-qty" aria-label="Select quantity" style="padding:0.5rem 1rem; border-radius:20px; border:1px solid var(--border); margin-right:0.5rem;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -747,11 +786,6 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
-        📱
-    </a>
-
     <script>
         // Filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
@@ -794,9 +828,41 @@
             });
         });
 
-        function addToCart(productName) {
-            alert(productName + " has been added to your cart!");
-            // You can expand this function to actually manage a cart in localStorage or backend
+        function addToCart(btn) {
+            // Find the product card
+            const card = btn.closest('.product-card');
+            if (!card) return;
+
+            // Get product details
+            const productName = card.querySelector('h3').textContent;
+            const priceText = card.querySelector('.price');
+            const price = priceText ? parseInt(priceText.textContent.replace(/[^0-9]/g, '')) : 0;
+            const variety = card.querySelector('.product-variety') ? card.querySelector('.product-variety').textContent : '';
+            const imgSrc = card.querySelector('.product-image img') ? card.querySelector('.product-image img').src : '';
+            const qty = parseInt(card.querySelector('.product-qty').value);
+
+            // Get existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
+
+            // Check if product already in cart
+            const existing = cart.find(item => item.name === productName && item.variety === variety);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    qty: qty,
+                    variety: variety,
+                    img: imgSrc
+                });
+            }
+
+            // Save cart
+            localStorage.setItem('mewantra_cart', JSON.stringify(cart));
+
+            // Redirect to cart page
+            window.location.href = "/cart.html";
         }
     </script>
 </body>
