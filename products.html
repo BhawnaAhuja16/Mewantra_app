@@ -20,6 +20,68 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components/glass-effects.css">
     <link rel="stylesheet" href="css/pages/products.css">
+    <style>
+        /* Page-specific styles */
+        .products-hero {
+            background: linear-gradient(rgba(26, 34, 56, 0.7), rgba(26, 34, 56, 0.7)), url('assets/images/products-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .product-card {
+            padding-bottom: 1.5rem;
+        }
+        
+        .product-variety {
+            margin: 0 1.5rem 0.5rem;
+            color: var(--light-text);
+            font-style: italic;
+        }
+        
+        .price-container {
+            margin: 0 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .price-per-kg {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .product-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .add-to-cart-btn {
+            margin: 0 1.5rem;
+            width: calc(100% - 3rem);
+        }
+    </style>
 </head>
 <body>
     <!-- Glass Navbar -->
@@ -43,188 +105,76 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Products Hero -->
+    <section class="products-hero">
         <div class="container">
             <h1>Our Premium Products</h1>
             <p>Handpicked dry fruits and nuts delivered fresh to your doorstep</p>
         </div>
     </section>
 
-    <!-- Filter Section -->
-    <section class="filter-section">
+    <!-- Products Filters -->
+    <section class="section">
         <div class="container">
             <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Products</button>
-                <button class="filter-btn" data-filter="nuts">Nuts</button>
-                <button class="filter-btn" data-filter="dried-fruits">Dried Fruits</button>
-                <button class="filter-btn" data-filter="seeds">Seeds</button>
-                <button class="filter-btn" data-filter="premium">Premium Range</button>
+                <button class="glass-button filter-btn active" data-filter="all">All Products</button>
+                <button class="glass-button filter-btn" data-filter="nuts">Nuts</button>
+                <button class="glass-button filter-btn" data-filter="dried-fruits">Dried Fruits</button>
+                <button class="glass-button filter-btn" data-filter="seeds">Seeds</button>
+                <button class="glass-button filter-btn" data-filter="premium">Premium Range</button>
             </div>
-        </div>
-    </section>
-
-    <!-- Products Grid -->
-    <section class="products-section">
-        <div class="container">
+            
+            <!-- Products Grid -->
             <div class="products-grid">
                 <!-- Almonds -->
                 <div class="glass-card product-card" data-category="nuts premium">
-                    <a href="product-details/almonds.html" class="product-link">
+                    <a href="#" class="product-link">
                         <div class="product-image">
                             <img src="assets/images/products/almonds.jpg" alt="Premium Almonds" />
                         </div>
                         <h3>Premium Almonds</h3>
-                        <p class="product-variety">Californian & Kashmiri Varieties</p>
-                        <div class="price-container">
-                            <p class="price">₹500/250g</p>
-                            <p class="price-per-kg">₹2,000/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="almonds" data-price="500">Add to Cart</button>
-                </div>
-
-                <!-- Mamra Almonds -->
-                <div class="glass-card product-card" data-category="nuts premium">
-                    <a href="product-details/mamra-almonds.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/mamra-almonds.jpg" alt="Mamra Almonds" />
-                        </div>
-                        <h3>Mamra Almonds</h3>
-                        <p class="product-variety">Premium Iranian Mamra</p>
-                        <div class="price-container">
-                            <p class="price">₹650/250g</p>
-                            <p class="price-per-kg">₹2,600/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="mamra-almonds" data-price="650">Add to Cart</button>
-                </div>
-
-                <!-- Dates -->
-                <div class="glass-card product-card" data-category="dried-fruits premium">
-                    <a href="product-details/dates.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/dates.jpg" alt="Premium Dates" />
-                        </div>
-                        <h3>Premium Dates</h3>
-                        <p class="product-variety">Medjool & Ajwa Varieties</p>
-                        <div class="price-container">
-                            <p class="price">₹350/250g</p>
-                            <p class="price-per-kg">₹1,400/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="dates" data-price="350">Add to Cart</button>
-                </div>
-
-                <!-- Cashews -->
-                <div class="glass-card product-card" data-category="nuts premium">
-                    <a href="product-details/cashews.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/cashews.jpg" alt="Cashew Nuts" />
-                        </div>
-                        <h3>Cashew Nuts</h3>
-                        <p class="product-variety">Premium W320 & W240 Grade</p>
-                        <div class="price-container">
-                            <p class="price">₹300/250g</p>
-                            <p class="price-per-kg">₹1,200/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="cashews" data-price="300">Add to Cart</button>
-                </div>
-
-                <!-- Raisins -->
-                <div class="glass-card product-card" data-category="dried-fruits">
-                    <a href="product-details/raisins.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/raisins-golden.jpg" alt="Golden Raisins" />
-                        </div>
-                        <h3>Golden Raisins</h3>
-                        <p class="product-variety">Seedless Premium Quality</p>
-                        <div class="price-container">
-                            <p class="price">₹200/250g</p>
-                            <p class="price-per-kg">₹800/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="raisins" data-price="200">Add to Cart</button>
-                </div>
-
-                <!-- Pistachios -->
-                <div class="glass-card product-card" data-category="nuts premium">
-                    <a href="product-details/pistachios.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/pistachios.jpg" alt="Pistachios" />
-                        </div>
-                        <h3>Pistachios</h3>
-                        <p class="product-variety">Iranian & Californian</p>
+                        <p class="product-variety">Californian & Mamra</p>
                         <div class="price-container">
                             <p class="price">₹800/250g</p>
                             <p class="price-per-kg">₹3,200/kg</p>
                         </div>
                     </a>
-                    <button class="glass-button add-to-cart-btn" data-product="pistachios" data-price="800">Add to Cart</button>
+                    <button class="glass-button add-to-cart-btn" data-product="Premium Almonds" data-price="800">Add to Cart</button>
                 </div>
-
-                <!-- Walnuts -->
-                <div class="glass-card product-card" data-category="nuts premium">
-                    <a href="product-details/walnuts.html" class="product-link">
+                
+                <!-- Cashews -->
+                <div class="glass-card product-card" data-category="nuts">
+                    <a href="#" class="product-link">
                         <div class="product-image">
-                            <img src="assets/images/products/walnuts.jpg" alt="Kashmir Walnuts" />
+                            <img src="assets/images/products/cashews.jpg" alt="Cashew Nuts" />
                         </div>
-                        <h3>Kashmir Walnuts</h3>
-                        <p class="product-variety">Premium Kashmiri Akhrot</p>
+                        <h3>Cashew Nuts</h3>
+                        <p class="product-variety">Premium Jumbo Size</p>
+                        <div class="price-container">
+                            <p class="price">₹700/250g</p>
+                            <p class="price-per-kg">₹2,800/kg</p>
+                        </div>
+                    </a>
+                    <button class="glass-button add-to-cart-btn" data-product="Cashew Nuts" data-price="700">Add to Cart</button>
+                </div>
+                
+                <!-- Dates -->
+                <div class="glass-card product-card" data-category="dried-fruits">
+                    <a href="#" class="product-link">
+                        <div class="product-image">
+                            <img src="assets/images/products/dates.jpg" alt="Medjool Dates" />
+                        </div>
+                        <h3>Medjool Dates</h3>
+                        <p class="product-variety">Imported Premium Quality</p>
                         <div class="price-container">
                             <p class="price">₹600/250g</p>
                             <p class="price-per-kg">₹2,400/kg</p>
                         </div>
                     </a>
-                    <button class="glass-button add-to-cart-btn" data-product="walnuts" data-price="600">Add to Cart</button>
+                    <button class="glass-button add-to-cart-btn" data-product="Medjool Dates" data-price="600">Add to Cart</button>
                 </div>
-
-                <!-- Dried Figs -->
-                <div class="glass-card product-card" data-category="dried-fruits">
-                    <a href="product-details/figs.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/figs.jpg" alt="Dried Figs (Anjeer)" />
-                        </div>
-                        <h3>Dried Figs (Anjeer)</h3>
-                        <p class="product-variety">Turkish & Afghan Varieties</p>
-                        <div class="price-container">
-                            <p class="price">₹400/250g</p>
-                            <p class="price-per-kg">₹1,600/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="figs" data-price="400">Add to Cart</button>
-                </div>
-
-                <!-- Chia Seeds -->
-                <div class="glass-card product-card" data-category="seeds">
-                    <a href="product-details/chia-seeds.html" class="product-link">
-                        <div class="product-image">
-                            <img src="assets/images/products/chia-seeds.jpg" alt="Chia Seeds" />
-                        </div>
-                        <h3>Chia Seeds</h3>
-                        <p class="product-variety">Organic & Raw</p>
-                        <div class="price-container">
-                            <p class="price">₹250/250g</p>
-                            <p class="price-per-kg">₹1,000/kg</p>
-                        </div>
-                    </a>
-                    <button class="glass-button add-to-cart-btn" data-product="chia-seeds" data-price="250">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="section cta-section">
-        <div class="container">
-            <div class="glass-card cta-card">
-                <h2>Need Assistance with Your Order?</h2>
-                <p>Our team is ready to help you select the best products for your needs</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="glass-button">Contact Us</a>
-                    <a href="https://wa.me/919717098678" class="glass-button">WhatsApp Us</a>
-                </div>
+                
+                <!-- Add more products as needed -->
             </div>
         </div>
     </section>
@@ -280,63 +230,17 @@
                 // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Filter products
+                // Get filter value
                 const filter = this.getAttribute('data-filter');
+                
+                // Filter products
                 document.querySelectorAll('.product-card').forEach(card => {
                     if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
-                        card.style.display = 'block';
+                        card.style.display = 'flex';
                     } else {
                         card.style.display = 'none';
                     }
                 });
-            });
-        });
-
-        // Add to cart functionality
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const product = this.getAttribute('data-product');
-                const price = parseInt(this.getAttribute('data-price'));
-                
-                // Get existing cart or create new one
-                let cart = JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
-                
-                // Check if product already in cart
-                const existingItemIndex = cart.findIndex(item => item.name === product);
-                
-                if (existingItemIndex > -1) {
-                    // Update quantity if product exists
-                    cart[existingItemIndex].qty += 1;
-                } else {
-                    // Add new item to cart
-                    cart.push({
-                        name: product,
-                        price: price,
-                        qty: 1,
-                        img: `assets/images/products/${product}.jpg`
-                    });
-                }
-                
-                // Save cart to localStorage
-                localStorage.setItem('mewantra_cart', JSON.stringify(cart));
-                
-                // Add to browsing history
-                let history = JSON.parse(localStorage.getItem('mewantra_history') || '[]');
-                if (!history.some(item => item.name === product)) {
-                    history.push({
-                        name: product,
-                        price: price,
-                        img: `assets/images/products/${product}.jpg`
-                    });
-                    if (history.length > 10) history.shift();
-                    localStorage.setItem('mewantra_history', JSON.stringify(history));
-                }
-                
-                // Visual feedback
-                this.textContent = 'Added!';
-                setTimeout(() => {
-                    this.textContent = 'Add to Cart';
-                }, 1500);
             });
         });
     </script>

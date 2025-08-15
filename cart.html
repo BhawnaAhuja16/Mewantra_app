@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - Mewantra | Premium Dry Fruits & Nuts</title>
-    <meta name="description" content="Review your cart and checkout your premium dry fruits and nuts order from Mewantra. Fast delivery and secure payment options.">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Shopping Cart - Mewantra">
-    <meta property="og:description" content="Checkout and complete your premium dry fruits order">
-    <meta property="og:type" content="website">
+    <title>Shopping Cart - Mewantra</title>
+    <meta name="description" content="Review your cart and checkout premium dry fruits and nuts from Mewantra.">
     
     <!-- Font imports -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +14,203 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components/glass-effects.css">
-    <link rel="stylesheet" href="css/pages/cart.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            padding-top: 100px;
+        }
+        
+        .cart-section {
+            min-height: 70vh;
+        }
+        
+        .cart-container, .checkout-container {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+        
+        .cart-container h2, .checkout-container h2 {
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(191, 160, 84, 0.2);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 1.5rem;
+        }
+        
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+        
+        .cart-item-price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            background: var(--accent);
+            color: var(--navy);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .cart-item-qty {
+            font-weight: 600;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            border-top: 1px solid rgba(191, 160, 84, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .cart-total-label {
+            font-weight: 600;
+        }
+        
+        .cart-total-value {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .cart-coupon {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .cart-coupon input {
+            flex-grow: 1;
+            padding: 0.7rem 1rem;
+            border-radius: 25px;
+            border: 1px solid rgba(191, 160, 84, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .checkout-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(191, 160, 84, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .empty-cart p {
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem 0;
+            }
+            
+            .cart-item img {
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+            
+            .cart-item-controls {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Glass Navbar -->
@@ -43,29 +234,16 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Your Cart</h1>
-            <p>Review your order and proceed to checkout</p>
-        </div>
-    </section>
-
-    <!-- Quick Add Section -->
-    <section class="quick-add-section">
-        <div class="container">
-            <h2 class="section-title">Quick Add From Your Browsing History</h2>
-            <div id="quick-add-products" class="quick-add-grid"></div>
-        </div>
-    </section>
-
-    <!-- Cart & Checkout -->
     <section class="cart-section">
         <div class="container">
             <div class="glass-card cart-container">
-                <h2>Your Cart Items</h2>
-                <div id="cart-list" class="cart-list"></div>
-                <div id="cart-total" class="cart-total"></div>
+                <h2>Your Shopping Cart</h2>
+                <div id="cart-list">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div id="cart-total" class="cart-total">
+                    <!-- Cart total will be dynamically updated -->
+                </div>
                 <div class="cart-coupon">
                     <input type="text" id="coupon-code" placeholder="Enter coupon code">
                     <button class="glass-button" id="apply-coupon">Apply</button>
@@ -89,22 +267,23 @@
                         <input type="email" id="email" name="email">
                     </div>
                     <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group full-width">
                         <label for="address">Delivery Address</label>
                         <textarea id="address" name="address" rows="3" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="payment-method">Payment Method</label>
-                        <select id="payment-method" name="payment-method" required>
-                            <option value="">Select Payment Method</option>
-                            <option value="cod">Cash on Delivery</option>
-                            <option value="online">Online Payment</option>
-                            <option value="upi">UPI</option>
-                        </select>
+                    <div class="form-group full-width">
+                        <label for="notes">Special Instructions (Optional)</label>
+                        <textarea id="notes" name="notes" rows="2"></textarea>
                     </div>
-                    <button type="submit" class="glass-button submit-btn">Place Order</button>
+                    <div class="form-group full-width">
+                        <button type="submit" class="glass-button" style="width: 100%;">Place Order</button>
+                    </div>
                 </form>
-                <div id="order-success" class="success-message">
-                    Thank you for your order! We will contact you soon.
+                <div id="order-success" style="display: none; text-align: center; margin-top: 1rem; padding: 1rem; background: rgba(39, 174, 96, 0.1); border-radius: 8px; color: #27ae60;">
+                    Thank you for your order! We will contact you shortly to confirm the details.
                 </div>
             </div>
         </div>
@@ -150,113 +329,132 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Simple cart logic using localStorage
-        function getCart() {
-            return JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
-        }
-        
-        function setCart(cart) {
-            localStorage.setItem('mewantra_cart', JSON.stringify(cart));
-        }
-        
-        function removeFromCart(index) {
-            const cart = getCart();
-            cart.splice(index, 1);
-            setCart(cart);
-            renderCart();
-        }
-        
-        function updateQty(idx, delta) {
-            let cart = getCart();
-            cart[idx].qty += delta;
-            if (cart[idx].qty < 1) cart[idx].qty = 1;
-            setCart(cart);
-            renderCart();
-        }
-        
-        let appliedDiscount = 0;
-        const coupons = {
-            "MEW10": 0.10, // 10% off
-            "SAVE50": 50   // ₹50 off
-        };
-        
+        // Cart functions
         function renderCart() {
             const cart = getCart();
             const cartList = document.getElementById('cart-list');
             const cartTotal = document.getElementById('cart-total');
+            const checkoutForm = document.getElementById('checkout-form');
             
             if (cart.length === 0) {
-                cartList.innerHTML = '<div class="empty-cart">Your cart is empty. <a href="products.html">Continue shopping</a></div>';
-                cartTotal.textContent = '';
-                document.getElementById('checkout-form').style.display = 'none';
-                return;
-            }
-            let total = 0;
-            cartList.innerHTML = cart.map((item, idx) => {
-                total += item.price * item.qty;
-                return `
-                    <div class="cart-item">
-                        <img src="${item.img || 'images/default.jpg'}" alt="${item.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;margin-right:1rem;">
-                        <span class="cart-item-name">${item.name}</span>
-                        <div style="display:flex;align-items:center;gap:0.5rem;">
-                            <button onclick="updateQty(${idx},-1)" style="background:var(--accent);color:var(--navy);border:none;border-radius:50%;width:28px;height:28px;font-size:1.2rem;cursor:pointer;">-</button>
-                            <span class="cart-item-qty">${item.qty}</span>
-                            <button onclick="updateQty(${idx},1)" style="background:var(--accent);color:var(--navy);border:none;border-radius:50%;width:28px;height:28px;font-size:1.2rem;cursor:pointer;">+</button>
-                        </div>
-                        <span>₹${item.price * item.qty}</span>
-                        <button onclick="removeFromCart(${idx})" style="background:none;border:none;color:var(--secondary);cursor:pointer;">Remove</button>
+                cartList.innerHTML = `
+                    <div class="empty-cart">
+                        <p>Your cart is empty.</p>
+                        <a href="products.html" class="glass-button">Continue Shopping</a>
                     </div>
                 `;
-            }).join('');
+                cartTotal.style.display = 'none';
+                document.querySelector('.cart-coupon').style.display = 'none';
+                checkoutForm.style.display = 'none';
+                return;
+            }
+            
+            checkoutForm.style.display = 'grid';
+            document.querySelector('.cart-coupon').style.display = 'flex';
+            cartTotal.style.display = 'flex';
+            
+            let total = 0;
+            let cartHTML = '';
+            
+            cart.forEach((item, idx) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                
+                cartHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img || 'assets/images/products/default.jpg'}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">₹${item.price} x ${item.qty}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="updateQty(${idx}, -1)">-</button>
+                                <span class="cart-item-qty">${item.qty}</span>
+                                <button class="quantity-btn" onclick="updateQty(${idx}, 1)">+</button>
+                            </div>
+                            <div class="cart-item-total">₹${itemTotal}</div>
+                            <button class="remove-btn" onclick="removeItem(${idx})">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartList.innerHTML = cartHTML;
+            
+            // Apply coupon if available
             let discount = 0;
-            if (appliedDiscount) {
-                if (appliedDiscount < 1) {
-                    discount = total * appliedDiscount;
-                } else {
-                    discount = appliedDiscount;
-                }
+            const couponCode = document.getElementById('coupon-code').value.trim();
+            if (couponCode === 'MEWANTRA10') {
+                discount = total * 0.1;
             }
-            let finalTotal = Math.max(0, total - discount);
+            
+            const finalTotal = total - discount;
+            
             cartTotal.innerHTML = `
-                <div>
-                    <div>Subtotal: ₹${total}</div>
-                    ${discount > 0 ? `<div style="color:var(--secondary);">Discount: -₹${discount.toFixed(0)}</div>` : ""}
-                    <div style="font-weight:bold;">Total: ₹${finalTotal.toFixed(0)}</div>
-                </div>
+                <div class="cart-total-label">Total:</div>
+                <div class="cart-total-value">₹${finalTotal.toFixed(2)}</div>
             `;
-            document.getElementById('checkout-form').style.display = 'block';
         }
-        function addToCartQuick(product) {
-            let cart = getCart();
-            const idx = cart.findIndex(item => item.name === product.name);
-            if (idx > -1) {
-                cart[idx].qty += 1;
-            } else {
-                cart.push({ name: product.name, price: product.price, qty: 1, img: product.img });
+        
+        function updateQty(idx, delta) {
+            const cart = getCart();
+            cart[idx].qty += delta;
+            
+            if (cart[idx].qty < 1) {
+                cart[idx].qty = 1;
             }
+            
             setCart(cart);
             renderCart();
         }
-        function renderQuickAdd() {
-            const products = getHistory();
-            const container = document.getElementById('quick-add-products');
-            if (!products.length) {
-                container.innerHTML = '<div style="color: var(--navy);">No recent products found.</div>';
-                return;
-            }
-            container.innerHTML = products.slice(-4).reverse().map(product => `
-                <div class="quick-add-product" style="background: var(--primary); border-radius: 12px; box-shadow: 0 2px 8px rgba(26,34,56,0.08); padding: 1rem; min-width: 140px; text-align: center;">
-                    <img src="${product.img}" alt="${product.name}" style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px; margin-bottom: 0.5rem;">
-                    <div class="quick-add-product-name" style="font-weight: bold; color: var(--navy); margin-bottom: 0.3rem;">${product.name}</div>
-                    <div class="quick-add-product-price" style="color: var(--accent); margin-bottom: 0.7rem;">₹${product.price}</div>
-                    <button onclick='addToCartQuick(${JSON.stringify(product)})' class="add-to-cart-btn" style="background: var(--accent); color: var(--navy); border: none; padding: 0.5rem 1.2rem; border-radius: 20px; cursor: pointer; font-weight: 500;">Add to Cart</button>
-                </div>
-            `).join('');
+        
+        function removeItem(idx) {
+            const cart = getCart();
+            cart.splice(idx, 1);
+            setCart(cart);
+            renderCart();
         }
-        // Render quick add section on page load
-        renderQuickAdd();
-        // Initial render
-        renderCart();
+        
+        // Apply coupon
+        document.getElementById('apply-coupon').addEventListener('click', function() {
+            const couponCode = document.getElementById('coupon-code').value.trim();
+            const couponMsg = document.getElementById('coupon-msg');
+            
+            if (couponCode === 'MEWANTRA10') {
+                couponMsg.textContent = 'Coupon applied: 10% off';
+                couponMsg.style.color = 'green';
+            } else {
+                couponMsg.textContent = 'Invalid coupon code';
+                couponMsg.style.color = 'red';
+            }
+            
+            renderCart();
+        });
+        
+        // Checkout form submission
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real app, you would send the form data to your server here
+            
+            // Show success message
+            document.getElementById('order-success').style.display = 'block';
+            
+            // Clear cart after successful order
+            setCart([]);
+            
+            // Hide form
+            this.style.display = 'none';
+            
+            // Scroll to success message
+            document.getElementById('order-success').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Initialize cart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCart();
+        });
     </script>
 </body>
 </html>
