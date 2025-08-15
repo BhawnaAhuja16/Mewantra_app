@@ -2,244 +2,191 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cart & Checkout - Mewantra</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        :root {
-            --primary: #6b3e26;
-            --secondary: #a67c52;
-            --accent: #d2b48c;
-            --background: #f8f5f2;
-            --white: #FFFFFF;
-            --text: #3e2723;
-            --light-text: #a67c52;
-            --border: #d2b48c;
-        }
-        body {
-            background: var(--background);
-            color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 700px;
-            margin: 3rem auto;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(107,62,38,0.08);
-            padding: 2rem;
-        }
-        h1 {
-            color: var(--primary);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .cart-list {
-            margin-bottom: 2rem;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        .cart-item-name {
-            font-weight: bold;
-        }
-        .cart-item-qty {
-            margin: 0 1rem;
-        }
-        .cart-total {
-            text-align: right;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            color: var(--secondary);
-        }
-        .checkout-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        .checkout-form input, .checkout-form textarea {
-            width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-        .checkout-btn {
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-        .checkout-btn:hover {
-            background: var(--secondary);
-            color: var(--white);
-        }
-        .empty-cart {
-            text-align: center;
-            color: var(--light-text);
-            margin: 2rem 0;
-        }
-        .quick-add-section {
-            background: var(--secondary);
-            padding: 2rem 0;
-        }
-        .quick-add-section h2 {
-            color: var(--navy);
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .quick-add-product {
-            background: var(--primary);
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(26,34,56,0.08);
-            padding: 1rem;
-            min-width: 140px;
-            text-align: center;
-        }
-        .quick-add-product img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-        }
-        .quick-add-product-name {
-            font-weight: bold;
-            color: var(--navy);
-            margin-bottom: 0.3rem;
-        }
-        .quick-add-product-price {
-            color: var(--accent);
-            margin-bottom: 0.7rem;
-        }
-        .add-to-cart-btn {
-            background: var(--accent);
-            color: var(--navy);
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 500;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Mewantra | Premium Dry Fruits & Nuts</title>
+    <meta name="description" content="Review your cart and checkout your premium dry fruits and nuts order from Mewantra. Fast delivery and secure payment options.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Shopping Cart - Mewantra">
+    <meta property="og:description" content="Checkout and complete your premium dry fruits order">
+    <meta property="og:type" content="website">
+    
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components/glass-effects.css">
+    <link rel="stylesheet" href="css/pages/cart.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container" style="display: flex; flex-direction: column; align-items: stretch; padding-top: 1.2rem; padding-bottom: 1.2rem;">
-            <div style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
-                <a href="/" class="logo" style="font-size: 2.8rem; font-weight: bold; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; display: inline-block;">
-                    Mewantra
-                </a>
+    <!-- Glass Navbar -->
+    <header class="glass-navbar">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="/" class="logo">Mewantra</a>
             </div>
-            <div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 2rem;">
-                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0;">
+            <div class="nav-container">
+                <ul class="nav-links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/products.html">Products</a></li>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                    <li><a href="/cart.html" class="active">Cart</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="/orderNow.html" class="contact-btn" style="background: var(--accent); color: var(--navy); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
-                    Order Now
+                <a href="cart.html" class="glass-button cart-btn active">
+                    🛒 Cart
                 </a>
+                <a href="orderNow.html" class="glass-button">Order Now</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <section class="quick-add-section" style="background: var(--secondary); padding: 2rem 0;">
-        <div class="container" style="max-width: 700px;">
-            <h2 style="color: var(--navy); text-align: center; margin-bottom: 1.5rem;">Quick Add From Your Browsing History</h2>
-            <div id="quick-add-products" style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;"></div>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Your Cart</h1>
+            <p>Review your order and proceed to checkout</p>
         </div>
     </section>
 
-    <div class="container">
-        <h1>Your Cart & Checkout</h1>
-        <div id="cart-list" class="cart-list"></div>
-        <div class="cart-total" id="cart-total"></div>
-        <form class="checkout-form" id="checkout-form">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required maxlength="10" pattern="[0-9]{10}">
-            <label for="address">Delivery Address</label>
-            <textarea id="address" name="address" rows="3" required></textarea>
-            <button type="submit" class="checkout-btn">Place Order</button>
-            <button type="button" class="checkout-btn" id="pay-btn" style="margin-top:1rem;">Pay Now</button>
-        </form>
-        <div id="order-success" style="display:none; text-align:center; color:var(--primary); font-weight:bold; margin-top:2rem;">
-            Thank you for your order! We will contact you soon.
+    <!-- Quick Add Section -->
+    <section class="quick-add-section">
+        <div class="container">
+            <h2 class="section-title">Quick Add From Your Browsing History</h2>
+            <div id="quick-add-products" class="quick-add-grid"></div>
         </div>
-    </div>
+    </section>
+
+    <!-- Cart & Checkout -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="glass-card cart-container">
+                <h2>Your Cart Items</h2>
+                <div id="cart-list" class="cart-list"></div>
+                <div id="cart-total" class="cart-total"></div>
+                <div class="cart-coupon">
+                    <input type="text" id="coupon-code" placeholder="Enter coupon code">
+                    <button class="glass-button" id="apply-coupon">Apply</button>
+                    <span id="coupon-msg"></span>
+                </div>
+            </div>
+            
+            <div class="glass-card checkout-container">
+                <h2>Checkout Information</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required maxlength="10" pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Payment Method</label>
+                        <select id="payment-method" name="payment-method" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="cod">Cash on Delivery</option>
+                            <option value="online">Online Payment</option>
+                            <option value="upi">UPI</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="glass-button submit-btn">Place Order</button>
+                </form>
+                <div id="order-success" class="success-message">
+                    Thank you for your order! We will contact you soon.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="glass-footer">
         <div class="container">
-            <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; text-align: left;">
-                <div class="footer-section" style="flex: 1; min-width: 220px; margin-right: 2rem;">
+            <div class="footer-content">
+                <div class="footer-section">
                     <h3>Mewantra</h3>
                     <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
                 </div>
-                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
                     <p><a href="/">Home</a></p>
-                    <p><a href="/products.html">Products</a></p>
-                    <p><a href="/about.html">About Us</a></p>
-                    <p><a href="/contact.html">Contact</a></p>
-                    <p><a href="/cart.html">Cart</a></p>
+                    <p><a href="products.html">Products</a></p>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                    <p><a href="cart.html">Cart</a></p>
                 </div>
-                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>📞 +91 XXXXX XXXXX</p>
+                    <p>📞 +91 9717098678</p>
                     <p>📧 orders@mewantra.com</p>
                     <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
                 </div>
-                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                <div class="footer-section">
                     <h3>Follow Us</h3>
                     <p>Stay connected for latest offers and updates</p>
                 </div>
             </div>
-            <div class="footer-bottom" style="text-align: center; margin-top: 2rem;">
+            <div class="footer-bottom">
                 <p>&copy; 2025 Mewantra. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919717098678" class="glass-button whatsapp-float" target="_blank">
+        📱
+    </a>
+
+    <script src="js/main.js"></script>
     <script>
         // Simple cart logic using localStorage
         function getCart() {
             return JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
         }
+        
         function setCart(cart) {
             localStorage.setItem('mewantra_cart', JSON.stringify(cart));
         }
+        
         function removeFromCart(index) {
             const cart = getCart();
             cart.splice(index, 1);
             setCart(cart);
             renderCart();
         }
+        
+        function updateQty(idx, delta) {
+            let cart = getCart();
+            cart[idx].qty += delta;
+            if (cart[idx].qty < 1) cart[idx].qty = 1;
+            setCart(cart);
+            renderCart();
+        }
+        
+        let appliedDiscount = 0;
+        const coupons = {
+            "MEW10": 0.10, // 10% off
+            "SAVE50": 50   // ₹50 off
+        };
+        
         function renderCart() {
             const cart = getCart();
             const cartList = document.getElementById('cart-list');
             const cartTotal = document.getElementById('cart-total');
+            
             if (cart.length === 0) {
-                cartList.innerHTML = '<div class="empty-cart">Your cart is empty.</div>';
+                cartList.innerHTML = '<div class="empty-cart">Your cart is empty. <a href="products.html">Continue shopping</a></div>';
                 cartTotal.textContent = '';
                 document.getElementById('checkout-form').style.display = 'none';
                 return;
@@ -249,43 +196,45 @@
                 total += item.price * item.qty;
                 return `
                     <div class="cart-item">
+                        <img src="${item.img || 'images/default.jpg'}" alt="${item.name}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;margin-right:1rem;">
                         <span class="cart-item-name">${item.name}</span>
-                        <span class="cart-item-qty">x${item.qty}</span>
+                        <div style="display:flex;align-items:center;gap:0.5rem;">
+                            <button onclick="updateQty(${idx},-1)" style="background:var(--accent);color:var(--navy);border:none;border-radius:50%;width:28px;height:28px;font-size:1.2rem;cursor:pointer;">-</button>
+                            <span class="cart-item-qty">${item.qty}</span>
+                            <button onclick="updateQty(${idx},1)" style="background:var(--accent);color:var(--navy);border:none;border-radius:50%;width:28px;height:28px;font-size:1.2rem;cursor:pointer;">+</button>
+                        </div>
                         <span>₹${item.price * item.qty}</span>
                         <button onclick="removeFromCart(${idx})" style="background:none;border:none;color:var(--secondary);cursor:pointer;">Remove</button>
                     </div>
                 `;
             }).join('');
-            cartTotal.textContent = "Total: ₹" + total;
+            let discount = 0;
+            if (appliedDiscount) {
+                if (appliedDiscount < 1) {
+                    discount = total * appliedDiscount;
+                } else {
+                    discount = appliedDiscount;
+                }
+            }
+            let finalTotal = Math.max(0, total - discount);
+            cartTotal.innerHTML = `
+                <div>
+                    <div>Subtotal: ₹${total}</div>
+                    ${discount > 0 ? `<div style="color:var(--secondary);">Discount: -₹${discount.toFixed(0)}</div>` : ""}
+                    <div style="font-weight:bold;">Total: ₹${finalTotal.toFixed(0)}</div>
+                </div>
+            `;
             document.getElementById('checkout-form').style.display = 'block';
         }
-        // On checkout submit
-        document.getElementById('checkout-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // You can send order details to backend here
-            setCart([]);
-            renderCart();
-            document.getElementById('order-success').style.display = 'block';
-        });
-        // Payment link logic
-        document.getElementById('pay-btn').addEventListener('click', function() {
-            // Example: Redirect to a payment gateway or UPI link
-            window.open('https://paytm.me/your-payment-link', '_blank');
-        });
-        // Quick Add section logic
-        function getHistory() {
-            return JSON.parse(localStorage.getItem('mewantra_history') || '[]');
-        }
         function addToCartQuick(product) {
-            let cart = JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
-            // Check if already in cart
+            let cart = getCart();
             const idx = cart.findIndex(item => item.name === product.name);
             if (idx > -1) {
                 cart[idx].qty += 1;
             } else {
-                cart.push({ name: product.name, price: product.price, qty: 1 });
+                cart.push({ name: product.name, price: product.price, qty: 1, img: product.img });
             }
-            localStorage.setItem('mewantra_cart', JSON.stringify(cart));
+            setCart(cart);
             renderCart();
         }
         function renderQuickAdd() {

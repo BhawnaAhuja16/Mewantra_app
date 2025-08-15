@@ -1,9 +1,36 @@
+/* Add this :root block at the top of your styles.css for a consistent color scheme across all pages */
+
+:root {
+    --primary: #fff8e1;        /* Creamy White (background) */
+    --secondary: #f5e2b8;      /* Light Golden (card background) */
+    --accent: #bfa054;         /* Rich Gold (buttons, highlights) */
+    --navy: #1a2238;           /* Deep Navy (header/nav) */
+    --text: #1a2238;           /* Navy for main text */
+    --light-text: #bfa054;     /* Gold for secondary text */
+    --border: rgba(191, 160, 84, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: rgba(31, 38, 135, 0.07);
+}
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f8f6f2;
-    color: #222;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 header {

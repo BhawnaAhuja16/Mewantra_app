@@ -1,0 +1,47 @@
+/* glass-effects.css */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-navbar {
+  background: rgba(26, 34, 56, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.glass-button {
+  background: rgba(191, 160, 84, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 25px;
+  color: var(--navy);
+  padding: 0.7rem 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(191, 160, 84, 0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}

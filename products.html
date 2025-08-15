@@ -11,412 +11,36 @@
     <meta property="og:description" content="Complete range of premium dry fruits and nuts with prices">
     <meta property="og:type" content="website">
     
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Apply this :root block to all your pages for a consistent chocolate-rich color theme */
-        :root {
-            --primary: #fff8e1;        /* Creamy White (background) */
-            --secondary: #f5e2b8;      /* Light Golden (card background) */
-            --accent: #bfa054;         /* Rich Gold (buttons, highlights) */
-            --navy: #1a2238;           /* Deep Navy (header/nav) */
-            --text: #1a2238;           /* Navy for main text */
-            --light-text: #bfa054;     /* Gold for secondary text */
-            --border: #bfa054;         /* Gold for borders */
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--primary);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: var(--navy);
-            box-shadow: none;
-            border: none;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--secondary);
-        }
-
-        .contact-btn, .cart-btn {
-            background: var(--accent);
-            color: var(--navy);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease, color 0.3s ease;
-            border: none;
-        }
-
-        .contact-btn:hover, .cart-btn:hover {
-            background: var(--secondary);
-            color: var(--navy);
-        }
-
-        /* Page Header */
-        .page-header {
-            background: var(--navy);
-            color: var(--accent);
-            padding: 3rem 0;
-            text-align: center;
-            border: none;
-            box-shadow: none;
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .page-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            color: var(--secondary);
-        }
-
-        /* Filter Section */
-        .filter-section {
-            background: var(--primary);
-            padding: 2rem 0;
-            border-bottom: none;
-            box-shadow: none;
-        }
-
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: var(--secondary);
-            border: 2px solid var(--accent);
-            color: var(--navy);
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent);
-            color: var(--primary);
-        }
-
-        /* Products Grid */
-        .products-section {
-            padding: 3rem 0;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-            background: var(--primary); /* Matches the page background */
-            border: none;
-        }
-
-        .product-card {
-            background: var(--primary); /* Same as grid and page background */
-            border: 1px solid #f5e2b8;
-            border-radius: 18px;
-            box-shadow: 0 2px 16px rgba(26,34,56,0.08);
-            transition: box-shadow 0.3s, transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 420px;
-        }
-
-        .product-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 8px 32px rgba(191,160,84,0.13);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            background: var(--primary); /* Match grid/page background */
-            border-radius: 18px 18px 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-bottom: 1px solid #f5e2b8;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: #fff;
-            border-radius: 0;
-        }
-
-        .product-card h3 {
-            font-size: 1.15rem;
-            color: var(--navy);
-            margin: 1.2rem 1.2rem 0.5rem 1.2rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-        }
-
-        .product-variety {
-            font-size: 0.95rem;
-            color: var(--accent);
-            margin: 0 1.2rem 0.7rem 1.2rem;
-            font-style: italic;
-        }
-
-        .price-container {
-            margin: 0 1.2rem 0.7rem 1.2rem;
-        }
-
-        .price {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 0.2rem;
-        }
-
-        .price-per-kg {
-            font-size: 0.9rem;
-            color: var(--light-text);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--navy);
-            color: var(--accent);
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content h3 {
-            color: var(--accent);
-        }
-
-        .footer-section p, .footer-section a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--accent);
-            color: var(--accent);
-        }
-
-        /* Special Offers Popup */
-        .special-offers-popup {
-            background: var(--primary);
-            padding: 3rem 0;
-        }
-
-        .offers-popup-grid {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .offer-popup {
-            background: var(--navy);
-            color: var(--accent);
-            border-radius: 18px;
-            box-shadow: 0 2px 16px rgba(26,34,56,0.10);
-            padding: 2rem 1.5rem;
-            min-width: 260px;
-            max-width: 320px;
-            text-align: center;
-            position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .offer-popup:hover {
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: 0 8px 32px rgba(191,160,84,0.18);
-        }
-
-        .offer-popup h3 {
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-            color: var(--accent);
-        }
-
-        .offer-discount {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 0.7rem;
-        }
-
-        .offer-details {
-            font-size: 1rem;
-            color: var(--accent);
-            margin-bottom: 1.2rem;
-        }
-
-        .offer-link {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--navy);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .offer-link:hover {
-            background: var(--secondary);
-            color: var(--navy);
-        }
-
-        @media (max-width: 900px) {
-            .offers-popup-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .filter-container {
-                gap: 0.5rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-actions {
-                flex-direction: column;
-            }
-        }
-        @media (max-width: 900px) {
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width: 600px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            .product-image {
-                height: 180px;
-            }
-        }
-
-        /* WhatsApp Float Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: scale(1.1);
-        }
-    </style>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components/glass-effects.css">
+    <link rel="stylesheet" href="css/pages/products.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container" style="display: flex; flex-direction: column; align-items: stretch; padding-top: 1.2rem; padding-bottom: 1.2rem;">
-            <div style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
-                <a href="/" class="logo" style="font-size: 2.8rem; font-weight: bold; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; display: inline-block;">
-                    Mewantra
-                </a>
+    <!-- Glass Navbar -->
+    <header class="glass-navbar">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="/" class="logo">Mewantra</a>
             </div>
-            <div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 2rem;">
-                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0;">
+            <div class="nav-container">
+                <ul class="nav-links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/products.html" class="active">Products</a></li>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="/cart.html" class="cart-btn" style="background: var(--accent); color: var(--primary); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                <a href="cart.html" class="glass-button cart-btn">
                     🛒 Cart
                 </a>
-                <a href="/orderNow.html" class="contact-btn">Order Now</a>
+                <a href="orderNow.html" class="glass-button">Order Now</a>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Page Header -->
@@ -440,30 +64,31 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products Grid -->
     <section class="products-section">
         <div class="container">
             <div class="products-grid">
                 <!-- Almonds -->
-                <div class="product-card" data-category="nuts premium">
-                    <a href="product-details/almonds.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="nuts premium">
+                    <a href="product-details/almonds.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/almonds.jpg" alt="Premium Almonds" />
+                            <img src="assets/images/products/almonds.jpg" alt="Premium Almonds" />
                         </div>
                         <h3>Premium Almonds</h3>
-                        <p class="product-variety">California & Kashmiri Varieties</p>
+                        <p class="product-variety">Californian & Kashmiri Varieties</p>
                         <div class="price-container">
-                            <p class="price">₹450/250g</p>
-                            <p class="price-per-kg">₹1,800/kg</p>
+                            <p class="price">₹500/250g</p>
+                            <p class="price-per-kg">₹2,000/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="almonds" data-price="500">Add to Cart</button>
                 </div>
 
                 <!-- Mamra Almonds -->
-                <div class="product-card" data-category="nuts premium">
-                    <a href="product-details/mamra-almonds.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="nuts premium">
+                    <a href="product-details/mamra-almonds.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/mamra-almonds.jpg" alt="Mamra Almonds" />
+                            <img src="assets/images/products/mamra-almonds.jpg" alt="Mamra Almonds" />
                         </div>
                         <h3>Mamra Almonds</h3>
                         <p class="product-variety">Premium Iranian Mamra</p>
@@ -472,58 +97,62 @@
                             <p class="price-per-kg">₹2,600/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="mamra-almonds" data-price="650">Add to Cart</button>
                 </div>
 
                 <!-- Dates -->
-                <div class="product-card" data-category="dried-fruits premium">
-                    <a href="product-details/dates.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="dried-fruits premium">
+                    <a href="product-details/dates.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/dates2.jpeg" alt="Fresh Dates" />
+                            <img src="assets/images/products/dates.jpg" alt="Premium Dates" />
                         </div>
-                        <h3>Fresh Dates</h3>
-                        <p class="product-variety">Medjool, Ajwa & Khajoor</p>
+                        <h3>Premium Dates</h3>
+                        <p class="product-variety">Medjool & Ajwa Varieties</p>
                         <div class="price-container">
                             <p class="price">₹350/250g</p>
                             <p class="price-per-kg">₹1,400/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="dates" data-price="350">Add to Cart</button>
                 </div>
 
                 <!-- Cashews -->
-                <div class="product-card" data-category="nuts premium">
-                    <a href="product-details/cashews.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="nuts premium">
+                    <a href="product-details/cashews.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/cashews.jpg" alt="Cashew Nuts" />
+                            <img src="assets/images/products/cashews.jpg" alt="Cashew Nuts" />
                         </div>
                         <h3>Cashew Nuts</h3>
-                        <p class="product-variety">W240 & W320 Grades</p>
+                        <p class="product-variety">Premium W320 & W240 Grade</p>
                         <div class="price-container">
-                            <p class="price">₹500/250g</p>
-                            <p class="price-per-kg">₹2,000/kg</p>
+                            <p class="price">₹300/250g</p>
+                            <p class="price-per-kg">₹1,200/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="cashews" data-price="300">Add to Cart</button>
                 </div>
 
                 <!-- Raisins -->
-                <div class="product-card" data-category="dried-fruits">
-                    <a href="product-details/raisins.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="dried-fruits">
+                    <a href="product-details/raisins.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/raisins-golden.jpg" alt="Premium Raisins" />
+                            <img src="assets/images/products/raisins-golden.jpg" alt="Golden Raisins" />
                         </div>
-                        <h3>Premium Raisins</h3>
-                        <p class="product-variety">Golden & Black Varieties</p>
+                        <h3>Golden Raisins</h3>
+                        <p class="product-variety">Seedless Premium Quality</p>
                         <div class="price-container">
                             <p class="price">₹200/250g</p>
                             <p class="price-per-kg">₹800/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="raisins" data-price="200">Add to Cart</button>
                 </div>
 
                 <!-- Pistachios -->
-                <div class="product-card" data-category="nuts premium">
-                    <a href="product-details/pistachios.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="nuts premium">
+                    <a href="product-details/pistachios.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/pista.jpeg" alt="Pistachios" />
+                            <img src="assets/images/products/pistachios.jpg" alt="Pistachios" />
                         </div>
                         <h3>Pistachios</h3>
                         <p class="product-variety">Iranian & Californian</p>
@@ -532,13 +161,14 @@
                             <p class="price-per-kg">₹3,200/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="pistachios" data-price="800">Add to Cart</button>
                 </div>
 
                 <!-- Walnuts -->
-                <div class="product-card" data-category="nuts premium">
-                    <a href="product-details/walnuts.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="nuts premium">
+                    <a href="product-details/walnuts.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/walnuts.jpg" alt="Kashmir Walnuts" />
+                            <img src="assets/images/products/walnuts.jpg" alt="Kashmir Walnuts" />
                         </div>
                         <h3>Kashmir Walnuts</h3>
                         <p class="product-variety">Premium Kashmiri Akhrot</p>
@@ -547,13 +177,14 @@
                             <p class="price-per-kg">₹2,400/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="walnuts" data-price="600">Add to Cart</button>
                 </div>
 
                 <!-- Dried Figs -->
-                <div class="product-card" data-category="dried-fruits">
-                    <a href="product-details/figs.html" style="text-decoration:none; color:inherit;">
+                <div class="glass-card product-card" data-category="dried-fruits">
+                    <a href="product-details/figs.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/figs0.jpeg" alt="Dried Figs (Anjeer)" />
+                            <img src="assets/images/products/figs.jpg" alt="Dried Figs (Anjeer)" />
                         </div>
                         <h3>Dried Figs (Anjeer)</h3>
                         <p class="product-variety">Turkish & Afghan Varieties</p>
@@ -562,178 +193,152 @@
                             <p class="price-per-kg">₹1,600/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="figs" data-price="400">Add to Cart</button>
                 </div>
 
-                <!-- Pumpkin Seeds -->
-                <div class="product-card" data-category="seeds">
-                    <a href="product-details/pumpkin-seeds.html" style="text-decoration:none; color:inherit;">
+                <!-- Chia Seeds -->
+                <div class="glass-card product-card" data-category="seeds">
+                    <a href="product-details/chia-seeds.html" class="product-link">
                         <div class="product-image">
-                            <img src="images/pumpkin2.jpeg" alt="Pumpkin Seeds" />
+                            <img src="assets/images/products/chia-seeds.jpg" alt="Chia Seeds" />
                         </div>
-                        <h3>Pumpkin Seeds</h3>
-                        <p class="product-variety">Raw & Roasted Options</p>
-                        <div class="price-container">
-                            <p class="price">₹300/250g</p>
-                            <p class="price-per-kg">₹1,200/kg</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Sunflower Seeds -->
-                <div class="product-card" data-category="seeds">
-                    <a href="product-details/sunflower-seeds.html" style="text-decoration:none; color:inherit;">
-                        <div class="product-image">
-                            <img src="images/sunflower.jpeg" alt="Sunflower Seeds" />
-                        </div>
-                        <h3>Sunflower Seeds</h3>
-                        <p class="product-variety">Raw & Salted Options</p>
+                        <h3>Chia Seeds</h3>
+                        <p class="product-variety">Organic & Raw</p>
                         <div class="price-container">
                             <p class="price">₹250/250g</p>
                             <p class="price-per-kg">₹1,000/kg</p>
                         </div>
                     </a>
+                    <button class="glass-button add-to-cart-btn" data-product="chia-seeds" data-price="250">Add to Cart</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Special Offers Popup -->
-    <section class="special-offers-popup">
+    <!-- Call to Action -->
+    <section class="section cta-section">
         <div class="container">
-            <h2 class="section-title">Special Offers</h2>
-            <div class="offers-popup-grid">
-                <div class="offer-popup">
-                    <h3>Bulk Orders</h3>
-                    <p class="offer-discount">10% OFF</p>
-                    <p class="offer-details">On orders above ₹2,000<br>Perfect for families and offices</p>
-                    <a href="/contact.html" class="offer-link">Contact Us</a>
-                </div>
-                <div class="offer-popup">
-                    <h3>Festival Special</h3>
-                    <p class="offer-discount">15% OFF</p>
-                    <p class="offer-details">Premium gift packing included<br>Perfect for gifting during festivals</p>
-                    <a href="/products.html" class="offer-link">View Products</a>
-                </div>
-                <div class="offer-popup">
-                    <h3>First Order</h3>
-                    <p class="offer-discount">5% OFF</p>
-                    <p class="offer-details">For new customers<br>Use code: WELCOME5</p>
-                    <a href="/orderNow.html" class="offer-link">Order Now</a>
+            <div class="glass-card cta-card">
+                <h2>Need Assistance with Your Order?</h2>
+                <p>Our team is ready to help you select the best products for your needs</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="glass-button">Contact Us</a>
+                    <a href="https://wa.me/919717098678" class="glass-button">WhatsApp Us</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="glass-footer">
         <div class="container">
-            <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; text-align: left;">
-                <div class="footer-section" style="flex: 1; min-width: 220px; margin-right: 2rem;">
+            <div class="footer-content">
+                <div class="footer-section">
                     <h3>Mewantra</h3>
                     <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
                 </div>
-                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
                     <p><a href="/">Home</a></p>
-                    <p><a href="/products.html">Products</a></p>
-                    <p><a href="/about.html">About Us</a></p>
-                    <p><a href="/contact.html">Contact</a></p>
+                    <p><a href="products.html">Products</a></p>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                    <p><a href="cart.html">Cart</a></p>
                 </div>
-                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>📞 +91 XXXXX XXXXX</p>
+                    <p>📞 +91 9717098678</p>
                     <p>📧 orders@mewantra.com</p>
                     <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
                 </div>
-                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                <div class="footer-section">
                     <h3>Follow Us</h3>
                     <p>Stay connected for latest offers and updates</p>
                 </div>
             </div>
-            <div class="footer-bottom" style="text-align: center; margin-top: 2rem;">
+            <div class="footer-bottom">
                 <p>&copy; 2025 Mewantra. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919717098678" class="glass-button whatsapp-float" target="_blank">
+        📱
+    </a>
+
+    <script src="js/main.js"></script>
     <script>
         // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
                 // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
                 // Add active class to clicked button
-                btn.classList.add('active');
-
-                const filter = btn.getAttribute('data-filter');
-
-                productCards.forEach(card => {
-                    if (filter === 'all') {
+                this.classList.add('active');
+                
+                // Filter products
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.product-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
                         card.style.display = 'block';
                     } else {
-                        const categories = card.getAttribute('data-category');
-                        if (categories.includes(filter)) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
+                        card.style.display = 'none';
                     }
                 });
             });
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                const price = parseInt(this.getAttribute('data-price'));
+                
+                // Get existing cart or create new one
+                let cart = JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
+                
+                // Check if product already in cart
+                const existingItemIndex = cart.findIndex(item => item.name === product);
+                
+                if (existingItemIndex > -1) {
+                    // Update quantity if product exists
+                    cart[existingItemIndex].qty += 1;
+                } else {
+                    // Add new item to cart
+                    cart.push({
+                        name: product,
+                        price: price,
+                        qty: 1,
+                        img: `assets/images/products/${product}.jpg`
                     });
                 }
+                
+                // Save cart to localStorage
+                localStorage.setItem('mewantra_cart', JSON.stringify(cart));
+                
+                // Add to browsing history
+                let history = JSON.parse(localStorage.getItem('mewantra_history') || '[]');
+                if (!history.some(item => item.name === product)) {
+                    history.push({
+                        name: product,
+                        price: price,
+                        img: `assets/images/products/${product}.jpg`
+                    });
+                    if (history.length > 10) history.shift();
+                    localStorage.setItem('mewantra_history', JSON.stringify(history));
+                }
+                
+                // Visual feedback
+                this.textContent = 'Added!';
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                }, 1500);
             });
         });
-
-        function addToCart(btn) {
-            // Find the product card
-            const card = btn.closest('.product-card');
-            if (!card) return;
-
-            // Get product details
-            const productName = card.querySelector('h3').textContent;
-            const priceText = card.querySelector('.price');
-            const price = priceText ? parseInt(priceText.textContent.replace(/[^0-9]/g, '')) : 0;
-            const variety = card.querySelector('.product-variety') ? card.querySelector('.product-variety').textContent : '';
-            const imgSrc = card.querySelector('.product-image img') ? card.querySelector('.product-image img').src : '';
-            const qty = parseInt(card.querySelector('.product-qty').value);
-
-            // Get existing cart from localStorage
-            let cart = JSON.parse(localStorage.getItem('mewantra_cart') || '[]');
-
-            // Check if product already in cart
-            const existing = cart.find(item => item.name === productName && item.variety === variety);
-            if (existing) {
-                existing.qty += qty;
-            } else {
-                cart.push({
-                    name: productName,
-                    price: price,
-                    qty: qty,
-                    variety: variety,
-                    img: imgSrc
-                });
-            }
-
-            // Save cart
-            localStorage.setItem('mewantra_cart', JSON.stringify(cart));
-
-            // Redirect to cart page
-            window.location.href = "/cart.html";
-        }
     </script>
 </body>
 </html>

@@ -11,512 +11,110 @@
     <meta property="og:description" content="Premium quality dry fruits delivered fresh to your doorstep">
     <meta property="og:type" content="website">
     
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #fff8e1;        /* Creamy White (background) */
-            --secondary: #f5e2b8;      /* Light Golden (card background) */
-            --accent: #bfa054;         /* Rich Gold (buttons, highlights) */
-            --navy: #1a2238;           /* Deep Navy (header/nav) */
-            --text: #1a2238;           /* Navy for main text */
-            --light-text: #bfa054;     /* Gold for secondary text */
-            --border: #bfa054;         /* Gold for borders */
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--primary);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: var(--navy);
-            box-shadow: none;
-            border: none;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--secondary);
-        }
-
-        .contact-btn, .cart-btn {
-            background: var(--accent);
-            color: var(--navy);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease, color 0.3s ease;
-            border: none;
-        }
-
-        .contact-btn:hover, .cart-btn:hover {
-            background: var(--secondary);
-            color: var(--navy);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #14213d 0%, #274472 100%);
-            padding: 4rem 0;
-            text-align: center;
-            position:relative;
-            overflow:hidden;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--light-text);
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
-        }
-
-        .cta-button:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
-        }
-
-        /* Trust Indicators */
-        .trust-section {
-            padding: 3rem 0;
-            background: var(--white);
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .trust-item {
-            background: var(--background);
-            color: var(--text);
-            border: 1px solid var(--border);
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .trust-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .trust-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* Featured Products */
-        .featured-products {
-            padding: 4rem 0;
-            background: var(--accent);
-            color: var(--navy);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 3rem;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .product-card {
-            background: var(--primary);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(39,68,114,0.08);
-            transition: all 0.3s ease;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(78,110,93,0.13);
-        }
-
-        .product-image {
-            width: 100%;
-            max-width: 180px;
-            height: auto;
-            aspect-ratio: 1/1;
-            background: var(--secondary);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border: 2px solid var(--border);
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            display: block;
-        }
-
-        .product-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-description {
-            color: var(--light-text);
-            margin-bottom: 1rem;
-        }
-
-        .product-btn {
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .product-btn:hover {
-            background: var(--secondary);
-            color: var(--text);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 4rem 0;
-            background: var(--primary);
-            color: var(--navy);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial {
-            background: var(--background);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary);
-            color: var(--text);
-            box-shadow: 0 2px 8px rgba(78,110,93,0.07);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--navy);
-            color: var(--accent);
-            padding: 3rem 0 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-content h3 {
-            color: var(--accent);
-        }
-
-        .footer-section p, .footer-section a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--accent);
-            color: var(--accent);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .tagline {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* WhatsApp Float Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128c7e;
-            transform: scale(1.1);
-        }
-    </style>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components/glass-effects.css">
+    <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container" style="display: flex; flex-direction: column; align-items: stretch; padding-top: 1.2rem; padding-bottom: 1.2rem;">
-            <div style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
-                <a href="/" class="logo" style="font-size: 2.8rem; font-weight: bold; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; display: inline-block;">
-                    Mewantra
-                </a>
+    <!-- Glass Navbar -->
+    <header class="glass-navbar">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="/" class="logo">Mewantra</a>
             </div>
-            <div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 2rem;">
-                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0;">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/products.html" class="active">Products</a></li>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <a href="/cart.html" class="cart-btn" style="background: var(--accent); color: var(--primary); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                <a href="cart.html" class="glass-button cart-btn">
                     🛒 Cart
                 </a>
-                <a href="/orderNow.html" class="contact-btn">Order Now</a>
+                <a href="orderNow.html" class="glass-button">Order Now</a>
             </div>
-        </nav>
+        </div>
     </header>
 
-  
-
-    <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(135deg, #14213d 0%, #274472 100%); position:relative; overflow:hidden;">
-        <video autoplay loop muted playsinline
-            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
-            <source src="media/dryfruit_veed.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+    <!-- Hero with Video Background -->
+    <section class="hero">
+        <video autoplay loop muted playsinline>
+            <source src="assets/videos/dryfruit_veed.mp4" type="video/mp4">
         </video>
-        <div class="container" style="position:relative; z-index:1;">
-            <h1>Mewantra</h1>
-            <p class="tagline">Premium Quality Dry Fruits & Nuts</p>
-            <p class="subtitle">Freshness delivered to your doorstep</p>
-            
-        </div>
-        <!-- Optional overlay for readability -->
-        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(240,255,240,0.08); z-index:0;"></div>
-    </section>
-
-      <!-- Page Header -->
-    <section class="page-header" style="background: var(--navy); padding: 2.5rem 0;">
-        <div class="container" style="text-align: center;">
-            <h1 style="color: var(--accent); font-size: 2.8rem; font-weight: bold; margin-bottom: 0.7rem; letter-spacing: 0.01em;">
-                Our Premium Products
-            </h1>
-            <p style="color: var(--secondary); font-size: 1.3rem; font-weight: 500;">
-                Handpicked dry fruits and nuts delivered fresh to your doorstep
-            </p>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Mewantra</h1>
+            <p class="hero-tagline">Premium Quality Dry Fruits & Nuts</p>
+            <p class="hero-subtitle">Freshness delivered to your doorstep</p>
+            <a href="#featured-products" class="glass-button hero-cta">Explore Products</a>
         </div>
     </section>
-
-    <!-- Filter Section -->
-    <section class="filter-section" style="background: var(--navy); padding: 1.2rem 0;">
-        <div class="container">
-            <div class="filter-container" style="display: flex; justify-content: center; align-items: center; gap: 2rem;">
-                <button class="filter-btn active" data-filter="all" style="background: var(--accent); color: var(--navy); border-radius: 25px; font-weight: bold; padding: 0.5rem 1.5rem; border: none; transition: background 0.3s, color 0.3s;">
-                    All Products
-                </button>
-                <button class="filter-btn" data-filter="nuts" style="background: var(--accent); color: var(--navy); border-radius: 25px; font-weight: bold; padding: 0.5rem 1.5rem; border: none; transition: background 0.3s, color 0.3s;">
-                    Nuts
-                </button>
-                <button class="filter-btn" data-filter="dried-fruits" style="background: var(--accent); color: var(--navy); border-radius: 25px; font-weight: bold; padding: 0.5rem 1.5rem; border: none; transition: background 0.3s, color 0.3s;">
-                    Dried Fruits
-                </button>
-                <button class="filter-btn" data-filter="seeds" style="background: var(--accent); color: var(--navy); border-radius: 25px; font-weight: bold; padding: 0.5rem 1.5rem; border: none; transition: background 0.3s, color 0.3s;">
-                    Seeds
-                </button>
-                <button class="filter-btn" data-filter="premium" style="background: var(--accent); color: var(--navy); border-radius: 25px; font-weight: bold; padding: 0.5rem 1.5rem; border: none; transition: background 0.3s, color 0.3s;">
-                    Premium Range
-                </button>
-            </div>
-        </div>
-    </section>
-
-
 
     <!-- Featured Products -->
-    <section class="featured-products" id="products" style="background: var(--accent); color: var(--navy); padding: 3rem 0;">
+    <section id="featured-products" class="section products-section">
         <div class="container">
             <h2 class="section-title">Our Premium Selection</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="glass-card product-card">
                     <div class="product-image">
-                        <img src="images/almonds.jpg" alt="Premium Almonds" />
+                        <img src="assets/images/products/almonds.jpg" alt="Premium Almonds" />
                     </div>
                     <h3>Premium Nuts</h3>
                     <p class="product-description">High Quality Nuts for snacking, rich in protein and healthy fats.</p>
-                    <button class="product-btn">Order Now</button>
+                    <a href="products.html" class="glass-button product-btn">View Products</a>
                 </div>
-                <div class="product-card">
-                    <div class="product-image"> <img src="images/cashews.jpg" alt="Cashew Nuts" /></div>
+                
+                <div class="glass-card product-card">
+                    <div class="product-image">
+                        <img src="assets/images/products/cashews.jpg" alt="Cashew Nuts" />
+                    </div>
                     <h3>Gift Packs</h3>
                     <p class="product-description">Gift packs for special occasions. Healthy and delicious. Customized as per your needs.</p>
-                    <button class="product-btn">Order Now</button>
+                    <a href="products.html" class="glass-button product-btn">View Products</a>
                 </div>
-                <div class="product-card">
-                    <div class="product-image"> <img src="images/raisins-golden.jpg" alt="Raisins" /></div>
+                
+                <div class="glass-card product-card">
+                    <div class="product-image">
+                        <img src="assets/images/products/raisins-golden.jpg" alt="Raisins" />
+                    </div>
                     <h3>Corporate Gifting</h3>
                     <p class="product-description">Corporate gifts in all range with personalization.</p>
-                    <button class="product-btn">Order Now</button>
+                    <a href="contact.html" class="glass-button product-btn">Inquire Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Trust Indicators -->
-    <section class="trust-section" style="background: var(--accent); color: var(--navy); padding: 3rem 0;">
+    <!-- Trust Indicators -->
+    <section class="section trust-section">
         <div class="container">
-            <h2 class="section-title" style="color: var(--navy);">Why Choose Mewantra?</h2>
-            <div class="trust-grid">
-                <div class="trust-item" style="background: var(--primary); color: var(--navy); border: 1px solid var(--navy);">
-                    <h3 style="color: var(--accent);">🌟 Premium Quality</h3>
+            <h2 class="section-title">Why Choose Mewantra?</h2>
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Premium Quality</h3>
                     <p>Hand-picked, carefully selected dry fruits and nuts from the finest sources</p>
                 </div>
-                <div class="trust-item" style="background: var(--primary); color: var(--navy); border: 1px solid var(--navy);">
-                    <h3 style="color: var(--accent);">🚚 Fast Delivery</h3>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
                     <p>Same-day delivery available. Fresh products delivered to your doorstep</p>
                 </div>
-                <div class="trust-item" style="background: var(--primary); color: var(--navy); border: 1px solid var(--navy);">
-                    <h3 style="color: var(--accent);">💯 100% Natural</h3>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>100% Natural</h3>
                     <p>No preservatives, no additives. Pure and natural dry fruits</p>
                 </div>
-                <div class="trust-item" style="background: var(--primary); color: var(--navy); border: 1px solid var(--navy);">
-                    <h3 style="color: var(--accent);">💰 Best Prices</h3>
+                <div class="glass-card feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Prices</h3>
                     <p>Competitive pricing with bulk order discounts available</p>
                 </div>
             </div>
@@ -524,19 +122,19 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials" style="background: var(--primary); color: var(--navy); padding: 3rem 0;">
+    <section class="section testimonials-section">
         <div class="container">
-            <h2 class="section-title" style="color: var(--navy);">What Our Customers Say</h2>
+            <h2 class="section-title">What Our Customers Say</h2>
             <div class="testimonials-grid">
-                <div class="testimonial">
+                <div class="glass-card testimonial">
                     <p class="testimonial-text">"Best quality dry fruits I've ever bought! Fresh, tasty, and delivered on time. Mewantra has become my go-to store for all dry fruits."</p>
                     <p class="testimonial-author">- Priya Sharma</p>
                 </div>
-                <div class="testimonial">
+                <div class="glass-card testimonial">
                     <p class="testimonial-text">"Excellent service and premium quality products. The cashews are incredibly fresh and the prices are very reasonable."</p>
                     <p class="testimonial-author">- Rajesh Kumar</p>
                 </div>
-                <div class="testimonial">
+                <div class="glass-card testimonial">
                     <p class="testimonial-text">"I order regularly for my family. The dates are amazing and perfect for gifting during festivals. Highly recommended!"</p>
                     <p class="testimonial-author">- Anjali Patel</p>
                 </div>
@@ -544,8 +142,22 @@
         </div>
     </section>
 
+    <!-- Call to Action -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="glass-card cta-card">
+                <h2>Ready to Order Premium Dry Fruits?</h2>
+                <p>Experience the taste of freshness with our premium selection</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="glass-button">Browse Products</a>
+                    <a href="contact.html" class="glass-button">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer>
+    <footer class="glass-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -555,13 +167,14 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <p><a href="/">Home</a></p>
-                    <p><a href="/products.html">Products</a></p>
-                    <p><a href="/about.html">About Us</a></p>
-                    <p><a href="/contact.html">Contact</a></p>
+                    <p><a href="products.html">Products</a></p>
+                    <p><a href="about.html">About Us</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                    <p><a href="cart.html">Cart</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>📞 +91 XXXXX XXXXX</p>
+                    <p>📞 +91 9717098678</p>
                     <p>📧 orders@mewantra.com</p>
                     <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
                 </div>
@@ -576,28 +189,11 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919717098678" class="glass-button whatsapp-float" target="_blank">
         📱
     </a>
 
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add click handlers to product buttons
-        document.querySelectorAll('.product-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                window.location.href = "/contact.html";
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
