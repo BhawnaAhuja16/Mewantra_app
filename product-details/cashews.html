@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium Cashew Nuts - Mewantra</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        :root {
+            --primary: #fff8e1;
+            --secondary: #f5e2b8;
+            --accent: #bfa054;
+            --navy: #1a2238;
+            --text: #1a2238;
+            --light-text: #bfa054;
+            --border: #bfa054;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--primary);
+        }
+        header {
+            background: var(--navy);
+            border-bottom: none;
+            box-shadow: none;
+        }
+        .logo {
+            color: var(--accent);
+        }
+        .nav-links a {
+            color: var(--accent);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+        .cart-btn, .contact-btn {
+            background: var(--accent);
+            color: var(--navy);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+            border: none;
+        }
+        .cart-btn:hover, .contact-btn:hover {
+            background: var(--secondary);
+            color: var(--navy);
+        }
+        .details-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            background: var(--primary);
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(26,34,56,0.10);
+            padding: 3.5rem 3rem;
+            display: flex;
+            flex-direction: row;
+            gap: 3.5rem;
+            align-items: flex-start;
+        }
+        .product-gallery {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            align-items: center;
+        }
+        .product-image {
+            width: 420px;
+            height: 420px;
+            background: var(--secondary);
+            border-radius: 22px;
+            box-shadow: 0 4px 18px rgba(26,34,56,0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+        .product-image img {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+            border-radius: 16px;
+            background: var(--secondary);
+        }
+        .thumb-gallery {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+        .thumb-gallery .product-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 14px;
+            cursor: pointer;
+            border: 2px solid var(--border);
+            box-shadow: none;
+            opacity: 0.8;
+            transition: opacity 0.2s, border-color 0.2s;
+        }
+        .thumb-gallery .product-image.selected,
+        .thumb-gallery .product-image:hover {
+            opacity: 1;
+            border-color: var(--accent);
+        }
+        .product-info {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            font-size: 1.15rem;
+        }
+        .product-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+        .product-variety {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .product-description {
+            font-size: 1.25rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        .product-benefits {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .product-actions {
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .noborder {
+            border: none !important;
+            background: var(--primary) !important;
+            color: var(--navy) !important;
+            box-shadow: none !important;
+            font-size: 1.2rem;
+            min-width: 70px;
+            padding: 0.8rem 1.5rem;
+            appearance: none;
+        }
+        .noborder:focus {
+            outline: none;
+        }
+        .product-weight.noborder {
+            border: none !important;
+            background: var(--primary) !important;
+            color: var(--navy) !important;
+            box-shadow: 0 2px 8px rgba(191,160,84,0.08);
+            font-size: 1.2rem;
+            min-width: 120px;
+            padding: 0.8rem 1.5rem;
+            appearance: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            position: relative;
+        }
+        .product-weight.noborder:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .product-btn.add-to-cart-btn,
+        .qty-btn {
+            background: var(--accent);
+            color: var(--navy);
+            border: none;
+            font-weight: bold;
+            border-radius: 30px;
+            padding: 0.9rem 2rem;
+            font-size: 1.15rem;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(191,160,84,0.08);
+            cursor: pointer;
+        }
+        .product-btn.add-to-cart-btn:hover,
+        .qty-btn:hover {
+            background: var(--secondary);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 1100px) {
+            .details-container {
+                flex-direction: column;
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+            .product-gallery {
+                flex-direction: row;
+                gap: 1.2rem;
+                justify-content: center;
+            }
+            .product-image {
+                width: 280px;
+                height: 280px;
+            }
+            .thumb-gallery .product-image {
+                width: 70px;
+                height: 70px;
+            }
+            .product-title { font-size: 2rem; }
+            .product-description { font-size: 1rem; }
+        }
+        @media (max-width: 900px) {
+            .details-container {
+                flex-direction: column;
+                padding: 1.5rem 0.5rem;
+                gap: 1.5rem;
+            }
+            .product-gallery {
+                flex-direction: row;
+                gap: 1rem;
+                justify-content: center;
+            }
+            .product-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        @media (max-width: 600px) {
+            .product-title { font-size: 1.4rem; }
+            .product-description { font-size: 1rem; }
+            .details-container { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container" style="display: flex; flex-direction: column; align-items: stretch; padding-top: 1.2rem; padding-bottom: 1.2rem;">
+            <div style="width: 100%; text-align: center; margin-bottom: 0.5rem;">
+                <a href="/" class="logo" style="font-size: 2.8rem; font-weight: bold; letter-spacing: 0.04em; color: var(--accent); text-decoration: none; display: inline-block; text-align: center;">
+                    Mewantra
+                </a>
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 2rem;">
+                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0; justify-content: center; width: 100%;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="/cart.html" class="cart-btn" style="background: var(--accent); color: var(--primary); padding: 0.5rem 1.2rem; border-radius: 25px; text-decoration: none; font-weight: bold;">
+                    🛒 Cart
+                </a>
+                <a href="/products.html" class="contact-btn">Order Now</a>
+            </div>
+        </nav>
+    </header>
+    <div class="details-container">
+        <div class="product-gallery">
+            <div class="product-image" id="main-image">
+                <img src="../images/products/cashews.jpg" alt="Cashew Nuts">
+            </div>
+            <div class="thumb-gallery">
+                <div class="product-image" onclick="setMainImage('../images/products/cashews.jpg')">
+                    <img src="../assets/images/products/cashews.jpg" alt="Cashew Nuts">
+                </div>
+                <div class="product-image" onclick="setMainImage('../images/products/blog-cashew-grade.jpg')">
+                    <img src="../assets/images/blog-cashew-grade.jpg" alt="W240 Cashews">
+                </div>
+                <div class="product-image" onclick="setMainImage('../images/products/cashewsw3.jpeg')">
+                    <img src="../assets/images/products/cashewsw3.jpeg" alt="W320 Cashews">
+                </div>
+                <div class="product-image" onclick="setMainImage('../images/products/cashew_prop.jpg')">
+                    <img src="../assets/images/products/cashew_prop.jpg" alt="W320 Cashews">
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="product-title">Premium Cashew Nuts</div>
+            <div class="product-variety">W240 & W320 Grades</div>
+            <div class="product-description">
+                Premium grade cashews, creamy and delicious. Perfect for cooking and snacking.
+            </div>
+            <ul class="product-benefits">
+                <li>Rich in healthy fats, protein, and minerals</li>
+                <li>Good for heart health and weight management</li>
+            </ul>
+            <div class="product-actions">
+                <label for="qty-cashew" style="margin-right:8px;">Qty:</label>
+                <button type="button" class="qty-btn" onclick="changeQty(-1, 'qty-cashew')">-</button>
+                <select id="qty-cashew" class="product-qty noborder" onchange="updatePrice()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <button type="button" class="qty-btn" onclick="changeQty(1, 'qty-cashew')">+</button>
+            </div>
+            <div style="margin-top:1.2rem;">
+                <div style="font-weight:600; color:var(--navy); margin-bottom:0.5rem;">Size</div>
+                <select id="weight-cashew" class="product-weight noborder" onchange="updatePrice()">
+                    <option value="250">250g</option>
+                    <option value="500">500g</option>
+                    <option value="1000">1000g</option>
+                </select>
+            </div>
+            <div id="dynamic-price-row" style="display: flex; align-items: center; margin-top: 1rem; gap: 1.5rem;">
+                <div id="dynamic-price" class="product-price"></div>
+                <button class="product-btn add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; text-align: left;">
+                <div class="footer-section" style="flex: 1; min-width: 220px; margin-right: 2rem;">
+                    <h3>Mewantra</h3>
+                    <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
+                </div>
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="/products.html">Products</a></p>
+                    <p><a href="/about.html">About Us</a></p>
+                    <p><a href="/contact.html">Contact</a></p>
+                </div>
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                    <h3>Contact Info</h3>
+                    <p>📞 +91 XXXXX XXXXX</p>
+                    <p>📧 orders@mewantra.com</p>
+                    <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
+                </div>
+                <div class="footer-section" style="flex: 1; min-width: 180px;">
+                    <h3>Follow Us</h3>
+                    <p>Stay connected for latest offers and updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom" style="text-align: center; margin-top: 2rem;">
+                <p>&copy; 2025 Mewantra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function setMainImage(src) {
+            document.getElementById('main-image').querySelector('img').src = src;
+        }
+        const basePrices = {
+            250: 500,
+            500: 1000,
+            1000: 2000
+        };
+        function updatePrice() {
+            const qty = parseInt(document.getElementById('qty-cashew').value, 10);
+            const weight = document.getElementById('weight-cashew').value;
+            const price = basePrices[weight] * qty;
+            document.getElementById('dynamic-price').textContent = `₹${price} for ${qty} x ${weight}g`;
+        }
+        document.addEventListener('DOMContentLoaded', updatePrice);
+        document.getElementById('qty-cashew').addEventListener('change', updatePrice);
+        document.getElementById('weight-cashew').addEventListener('change', updatePrice);
+        function changeQty(delta, selectId) {
+            var select = document.getElementById(selectId);
+            var current = parseInt(select.value, 10);
+            var next = current + delta;
+            if (next >= 1 && next <= 10) {
+                select.value = next;
+                updatePrice();
+            }
+        }
+        function addToCart(btn) {
+            // Implement your cart logic here
+            alert('Added to cart!');
+        }
+    </script>
+</body>
+</html>

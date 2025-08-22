@@ -3,82 +3,717 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mewantra by MewaRam's | Premium Dryfruits</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Mewantra - Premium Quality Dry Fruits & Nuts | Fresh Delivery</title>
+    <meta name="description" content="Mewantra offers premium quality dry fruits & nuts. Fresh almonds, dates, cashews, and more delivered to your door. Order online for best prices and quality.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Mewantra - Premium Dry Fruits & Nuts">
+    <meta property="og:description" content="Premium quality dry fruits delivered fresh to your doorstep">
+    <meta property="og:type" content="website">
+    
+    <!-- Premium Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --navy: #1A2238;
+            --navy-light: #2A3248;
+            --gold: #BFA054;
+            --gold-light: #D4B978;
+            --cream: #F5E2B8;
+            --cream-light: #FFF8E1;
+            --rich-brown: #6B3E26;
+            --accent: #BFA054;
+            --secondary: #F0D9B5;
+            --primary: #FFFFFF;
+            --text: #333333;
+        }
+        
+        /* Global styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--cream) 100%);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        /* Luxury scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(26, 34, 56, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(191, 160, 84, 0.6);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(191, 160, 84, 0.8);
+        }
+        
+        /* Hero section with rich video background */
+        .hero {
+            background: linear-gradient(135deg, #1A2238 0%, #2A3248 100%);
+            position: relative;
+            overflow: hidden;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(0.85);
+            transform: scale(1.05);
+            transition: transform 10s ease;
+        }
+        
+        .hero:hover video {
+            transform: scale(1);
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            color: var(--gold);
+            font-size: 5.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.2s forwards 0.5s;
+        }
+        
+        .hero .tagline {
+            color: var(--secondary);
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.2s forwards 0.7s;
+        }
+        
+        .hero .subtitle {
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.2s forwards 0.9s;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(20,33,61,0.4);
+            z-index: 0;
+        }
+        
+        /* Header styles */
+        .header {
+            background: var(--navy);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 0.04em;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+        
+        .cart-btn, .contact-btn {
+            background: var(--accent);
+            color: var(--navy);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cart-btn:hover, .contact-btn:hover {
+            background: var(--secondary);
+            color: var(--navy);
+        }
+        
+        /* Page header styles */
+        .page-header {
+            background: var(--navy);
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+        
+        .page-header p {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            font-weight: 500;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Filter section styles */
+        .filter-section {
+            background: var(--navy);
+            padding: 1rem 0 2rem 0;
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .filter-btn {
+            background: var(--accent);
+            color: var(--navy);
+            border-radius: 25px;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            transition: background 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary);
+        }
+        
+        /* Section styles */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Products grid styles */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .product-card {
+            background: var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .product-btn {
+            background: var(--accent);
+            color: var(--navy);
+            border: none;
+            border-radius: 25px;
+            padding: 0.7rem 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .product-btn:hover {
+            background: var(--secondary);
+            color: var(--navy);
+        }
+        
+        /* Trust indicators grid styles */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .trust-item {
+            background: var(--primary);
+            color: var(--navy);
+            border: 1px solid var(--navy);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .trust-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Testimonial styles */
+        .testimonial {
+            background: var(--primary);
+            color: var(--navy);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* WhatsApp float button styles */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: var(--navy);
+            padding: 1rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        /* Glassmorphism Navbar */
+        .glass-navbar {
+            background: rgba(26, 34, 56, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 0.5rem 0;
+            top: 0;
+        }
+        
+        .glass-button {
+            background: rgba(191, 160, 84, 0.8);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 25px;
+            color: var(--navy);
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Mewantra by MewaRam's</h1>
+    <!-- Header -->
+    <!-- Glass Navbar -->
+<header class="glass-navbar" style="background: rgba(26, 34, 56, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: fixed; width: 100%; z-index: 1000; padding: 0.5rem 0; top: 0;">
+    <div class="container">
+        <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+            <div class="logo-container" style="margin-bottom: 0;">
+                <a href="index.html" class="logo" style="font-size: 2.5rem; font-weight: 700; color: var(--accent); font-family: 'Playfair Display', serif; text-decoration: none;">Mewantra</a>
+            </div>
+            <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+                <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0;">
+                    <li><a href="index.html" class="active" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Home</a></li>
+                    <li><a href="products.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Products</a></li>
+                    <li><a href="about.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">About</a></li>
+                    <li><a href="contact.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Contact</a></li>
+                </ul>
+                <a href="cart.html" class="glass-button cart-btn" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none;">
+                    🛒 Cart
+                </a>
+                <a href="orderNow.html" class="glass-button" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none;">Order Now</a>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
+</header>
 
-    <section id="home" class="hero">
-        <h2>Premium Dryfruits Delivered Fresh</h2>
-        <p>Discover the finest selection of dryfruits curated for quality and taste. Welcome to Mewantra by MewaRam's!</p>
-        <a href="#products" class="btn">Shop Now</a>
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #1A2238 0%, #2A3248 100%); position:relative; overflow:hidden;">
+        <video autoplay loop muted playsinline
+            style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+            <source src="assets/videos/dryfruit_veed.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container" style="position:relative; z-index:1;">
+            <h1>Mewantra</h1>
+            <p class="tagline">Premium Quality Dry Fruits & Nuts</p>
+            <p class="subtitle">Freshness delivered to your doorstep</p>
+            
+        </div>
+        <!-- Optional overlay for readability -->
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(240,255,240,0.08); z-index:0;"></div>
     </section>
 
-    <section id="products">
-        <h2>Our Products</h2>
-        <div class="product-list">
-            <div class="product-card">
-                <img src="images/almonds.jpg" alt="Almonds">
-                <h3>Almonds</h3>
-                <p>High-quality, crunchy almonds packed with nutrition.</p>
+      <!-- Page Header -->
+
+      <!-- Featured Products -->
+    <section class="featured-products" id="products" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--navy); padding: 5rem 0 6rem; margin-top: 80px;">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--navy); font-family: 'Playfair Display', serif; margin-bottom: 3rem;">Our Premium Selection</h2>
+            <div class="products-grid">
+                <div class="glass-card product-card" data-category="nuts premium" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column;">
+                    <div class="product-image" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
+                        <img src="assets/images/products/almonds.jpg" alt="Premium Almonds" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" />
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3 style="color: var(--navy); margin-bottom: 0.5rem;">Premium Nuts</h3>
+                        <p class="product-description" style="color: var(--text); margin-bottom: 1.5rem;">High Quality Nuts for snacking, rich in protein and healthy fats.</p>
+                        <button class="glass-button product-btn" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; border: none; cursor: pointer;">Order Now</button>
+                    </div>
+                </div>
+                <div class="glass-card product-card" data-category="nuts" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column;">
+                    <div class="product-image" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
+                        <img src="assets/images/products/cashews.jpg" alt="Cashew Nuts" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" />
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3 style="color: var(--navy); margin-bottom: 0.5rem;">Gift Packs</h3>
+                        <p class="product-description" style="color: var(--text); margin-bottom: 1.5rem;">Gift packs for special occasions. Healthy and delicious. Customized as per your needs.</p>
+                        <button class="glass-button product-btn" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; border: none; cursor: pointer;">Order Now</button>
+                    </div>
+                </div>
+                <div class="glass-card product-card" data-category="dried-fruits" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column;">
+                    <div class="product-image" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
+                        <img src="assets/images/products/raisins-golden.jpg" alt="Raisins" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;" />
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3 style="color: var(--navy); margin-bottom: 0.5rem;">Corporate Gifting</h3>
+                        <p class="product-description" style="color: var(--text); margin-bottom: 1.5rem;">Corporate gifts in all range with personalization.</p>
+                        <button class="glass-button product-btn" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; border: none; cursor: pointer;">Order Now</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="images/cashews.jpg" alt="Cashews">
-                <h3>Cashews</h3>
-                <p>Creamy cashews, perfect for snacking and recipes.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/pistachios.jpg" alt="Pistachios">
-                <h3>Pistachios</h3>
-                <p>Roasted pistachios, rich in flavor and health benefits.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/raisins.jpg" alt="Raisins">
-                <h3>Raisins</h3>
-                <p>Sweet and chewy raisins, a perfect natural treat.</p>
-            </div>
-            <!-- Add more product cards as needed -->
         </div>
     </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>
-            Founded by MewaRam, Mewantra is dedicated to bringing you the freshest and finest dryfruits. Our legacy is built on quality, trust, and customer satisfaction. Experience premium taste with every bite!
-        </p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="contact-info">
-            <p>Email: info@mewantra.com</p>
-            <p>Phone: +91-XXXXXXXXXX</p>
+        <!-- Trust Indicators -->
+    <section class="trust-section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--navy); padding: 5rem 0;">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--navy); font-family: 'Playfair Display', serif;">Why Choose Mewantra?</h2>
+            <div class="trust-grid">
+                <div class="trust-item glass-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center; transition: all 0.3s ease;">
+                    <h3 style="color: var(--accent);">🌟 Premium Quality</h3>
+                    <p>Hand-picked, carefully selected dry fruits and nuts from the finest sources</p>
+                </div>
+                <div class="trust-item glass-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center; transition: all 0.3s ease;">
+                    <h3 style="color: var(--accent);">🚚 Fast Delivery</h3>
+                    <p>Same-day delivery available. Fresh products delivered to your doorstep</p>
+                </div>
+                <div class="trust-item glass-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center; transition: all 0.3s ease;">
+                    <h3 style="color: var(--accent);">💯 100% Natural</h3>
+                    <p>No preservatives, no additives. Pure and natural dry fruits</p>
+                </div>
+                <div class="trust-item glass-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center; transition: all 0.3s ease;">
+                    <h3 style="color: var(--accent);">💰 Best Prices</h3>
+                    <p>Competitive pricing with bulk order discounts available</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Mewantra by MewaRam's. All rights reserved.</p>
-    </footer>
+    <!-- Testimonials with Comic Bubbles -->
+    <section class="testimonials" style="background: var(--primary); color: var(--navy); padding: 5rem 0; position: relative; overflow: hidden;">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--navy);">What Our Customers Say</h2>
+            
+            <!-- Comic style testimonials -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; margin-top: 2rem;">
+                
+                <!-- Testimonial 1 -->
+                <div style="position: relative; max-width: 350px;">
+                    <!-- Avatar -->
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); margin-bottom: -20px; margin-left: 30px; position: relative; z-index: 2; background: #f8f8f8;">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Speech bubble -->
+                    <div style="background: white; border-radius: 20px; padding: 1.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); position: relative; transform: perspective(1000px) rotateZ(-1deg);">
+                        <!-- Bubble tail -->
+                        <div style="position: absolute; left: 30px; bottom: -15px; width: 30px; height: 30px; background: white; transform: rotate(45deg); box-shadow: 4px 4px 10px rgba(0,0,0,0.1);"></div>
+                        
+                        <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">
+                            "Best quality dry fruits I've ever bought! Fresh, tasty, and delivered on time. Mewantra has become my go-to store!"
+                        </p>
+                        <p style="font-weight: bold; color: var(--accent); text-align: right; margin: 0;">
+                            - Priya Sharma
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div style="position: relative; max-width: 350px;">
+                    <!-- Avatar -->
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); margin-bottom: -20px; margin-left: 30px; position: relative; z-index: 2; background: #f8f8f8;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Kumar" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Speech bubble -->
+                    <div style="background: white; border-radius: 20px; padding: 1.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); position: relative; transform: perspective(1000px) rotateZ(1deg);">
+                        <!-- Bubble tail -->
+                        <div style="position: absolute; left: 30px; bottom: -15px; width: 30px; height: 30px; background: white; transform: rotate(45deg); box-shadow: 4px 4px 10px rgba(0,0,0,0.1);"></div>
+                        
+                        <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">
+                            "Excellent service and premium quality products. The cashews are incredibly fresh and the prices are very reasonable!"
+                        </p>
+                        <p style="font-weight: bold; color: var(--accent); text-align: right; margin: 0;">
+                            - Rajesh Kumar
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div style="position: relative; max-width: 350px;">
+                    <!-- Avatar -->
+                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); margin-bottom: -20px; margin-left: 30px; position: relative; z-index: 2; background: #f8f8f8;">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Anjali Patel" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Speech bubble -->
+                    <div style="background: white; border-radius: 20px; padding: 1.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); position: relative; transform: perspective(1000px) rotateZ(-0.5deg);">
+                        <!-- Bubble tail -->
+                        <div style="position: absolute; left: 30px; bottom: -15px; width: 30px; height: 30px; background: white; transform: rotate(45deg); box-shadow: 4px 4px 10px rgba(0,0,0,0.1);"></div>
+                        
+                        <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 1rem; position: relative; z-index: 1;">
+                            "I order regularly for my family. The dates are amazing and perfect for gifting during festivals. Highly recommended!"
+                        </p>
+                        <p style="font-weight: bold; color: var(--accent); text-align: right; margin: 0;">
+                            - Anjali Patel
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background elements for comic feel -->
+            <div style="position: absolute; top: 20%; right: 5%; width: 100px; height: 100px; background: var(--accent); opacity: 0.1; border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: 15%; left: 10%; width: 60px; height: 60px; background: var(--accent); opacity: 0.1; border-radius: 50%;"></div>
+            <div style="position: absolute; top: 60%; right: 15%; width: 40px; height: 40px; background: var(--accent); opacity: 0.1; border-radius: 50%;"></div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Footer - Slimmed Version -->
+<footer style="background: rgba(26, 34, 56, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--accent); padding: 2rem 0 1rem; margin-top: 2rem;">
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-bottom: 1rem;">
+            <!-- Logo & Tagline -->
+            <div style="flex: 1; min-width: 200px; max-width: 300px;">
+                <h3 style="margin-bottom: 0.5rem;">Mewantra</h3>
+                <p style="font-size: 0.9rem;">Premium dry fruits delivered fresh to your doorstep</p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <a href="index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Home</a>
+                <a href="products.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Products</a>
+                <a href="about.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">About</a>
+                <a href="contact.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Contact</a>
+                <a href="cart.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Cart</a>
+            </div>
+            
+            <!-- Contact -->
+            <div style="flex: 1; min-width: 200px; text-align: right; font-size: 0.9rem;">
+                <p>📞 +91 9717098678 &nbsp;|&nbsp; 📧 orders@mewantra.com</p>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div style="text-align: center; border-top: 1px solid rgba(191, 160, 84, 0.2); padding-top: 1rem; font-size: 0.85rem;">
+            <p>&copy; 2025 Mewantra. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp-float" target="_blank">
+        📱
+    </a>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add click handlers to product buttons
+        document.querySelectorAll('.product-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                window.location.href = "contact.html";
+            });
+        });
+
+        // Add this new filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all filter buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Get all product cards
+            const productCards = document.querySelectorAll('.product-card');
+            
+            // Add click event to each filter button
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        // Get card's category (if not set, add a default attribute)
+                        if (!card.hasAttribute('data-category')) {
+                            card.setAttribute('data-category', 'all');
+                        }
+                        
+                        const category = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || category.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

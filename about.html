@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Heritage - Mewantra | Premium Dry Fruits & Nuts</title>
+    <meta name="description" content="Discover the Mewantra legacy, our meticulous sourcing journey, and our commitment to bringing the world's finest dry fruits to your table.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="The Mewantra Legacy - Premium Dry Fruits with Heritage">
+    <meta property="og:description" content="From the fertile valleys of Kashmir to your table - our journey of quality and tradition">
+    <meta property="og:type" content="website">
+    
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components/glass-effects.css">
+    <link rel="stylesheet" href="css/pages/about.css">
+    <style>
+        body {
+            padding-top: 100px;
+            background: linear-gradient(135deg, #fff8e1 0%, #f5e2b8 100%);
+            color: var(--navy);
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 5rem;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 34, 56, 0.9) 0%, rgba(26, 34, 56, 0.7) 50%, rgba(26, 34, 56, 0.4) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        
+        .decorated-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .decorated-heading h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin: 0;
+        }
+        
+        .decorated-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .story-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .story-image {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .story-content {
+            padding-right: 2rem;
+        }
+        
+        .story-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--accent);
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .story-quote::before {
+            content: "“";
+            font-size: 5rem;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            color: rgba(191, 160, 84, 0.2);
+        }
+        
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .journey-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(26,34,56,0.03) 0%, rgba(191,160,84,0.07) 100%);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(191, 160, 84, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(191, 160, 84, 0.2);
+        }
+        
+        .timeline-content {
+            position: relative;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            background: var(--accent);
+            color: var(--navy);
+            border-radius: 20px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: 20px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            left: 20px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--navy);
+        }
+        
+        .process-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .process-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(191, 160, 84, 0.1);
+            z-index: 0;
+        }
+        
+        .team-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            height: 250px;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+        
+        .quality-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, rgba(26,34,56,0.05) 0%, rgba(26,34,56,0.01) 100%);
+        }
+        
+        .quality-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .quality-image {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .quality-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .quality-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        
+        .quality-content li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .quality-content li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        
+        .testimonials-section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .testimonial-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-quote::before {
+            content: "“";
+            font-size: 5rem;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            color: rgba(191, 160, 84, 0.1);
+            z-index: -1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .story-grid, .quality-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-image {
+                height: 350px;
+                margin-top: 2rem;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding: 0 0 0 2rem;
+            }
+            
+            .timeline::before {
+                left: 0;
+            }
+            
+            .timeline-dot {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Glass Navbar -->
+    <header class="glass-navbar" style="background: rgba(26, 34, 56, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: fixed; width: 100%; z-index: 1000; padding: 0.5rem 0; top: 0;">
+        <div class="container">
+            <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                <div class="logo-container" style="margin-bottom: 0;">
+                    <a href="index.html" class="logo" style="font-size: 2.5rem; font-weight: 700; color: var(--accent); font-family: 'Playfair Display', serif; text-decoration: none;">Mewantra</a>
+                </div>
+                <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+                    <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0;">
+                        <li><a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Home</a></li>
+                        <li><a href="products.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Products</a></li>
+                        <li><a href="about.html" style="color: var(--secondary); text-decoration: none; font-weight: 500;">About</a></li>
+                        <li><a href="contact.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Contact</a></li>
+                    </ul>
+                    <a href="cart.html" class="glass-button cart-btn" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none;">
+                        🛒 Cart
+                    </a>
+                    <a href="orderNow.html" class="glass-button" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none;">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="assets/images/about/hero-bg.jpg" alt="Premium dry fruits" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">A Legacy of Exceptional Quality</h1>
+                <p class="hero-subtitle">From the fertile valleys of Kashmir to the lush orchards of California, we journey to bring you nature's finest treasures, carefully selected and delivered with love.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <div class="decorated-heading">
+                        <h2>Our Heritage</h2>
+                    </div>
+                    <p class="story-quote">A tale of passion, perseverance, and a commitment to excellence.</p>
+                    <p class="story-text">Mewantra was born from a family tradition that spans three generations. Our founder, Vikram Singh, grew up in a household where his grandfather, a respected dry fruit merchant in Old Delhi, taught him the art of distinguishing premium produce by texture, aroma, and appearance.</p>
+                    <p class="story-text">In 2022, after working with international exporters and witnessing firsthand the journey of dry fruits from orchard to market, Vikram established Mewantra with a vision to bridge the gap between discerning consumers and exceptional produce.</p>
+                    <p class="story-text">Our name "Mewantra" combines "Mewa" (the Hindi term for dry fruits) and "Mantra" (a sacred utterance), symbolizing our dedication to treating dry fruits with the respect and reverence they deserve.</p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/about/founder-story.jpg" alt="Mewantra Founder">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey Timeline -->
+    <section class="journey-section">
+        <div class="container">
+            <div class="decorated-heading" style="text-align: center;">
+                <h2>Our Journey</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">The Inspiration</h3>
+                        <p>After extensive research and forging relationships with premium suppliers worldwide, the vision for Mewantra was conceived.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="timeline-title">Our Beginning</h3>
+                        <p>Mewantra officially launched, bringing carefully curated dry fruits to a small but discerning clientele in Delhi NCR.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">Growing Reputation</h3>
+                        <p>Word spread about our exceptional quality, leading to partnerships with premium hotels and gourmet stores across the region.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3 class="timeline-title">Direct Sourcing Network</h3>
+                        <p>Established direct relationships with farmers in Kashmir, Afghanistan, and California, ensuring farm-to-table freshness.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Present Day</h3>
+                        <p>Serving thousands of satisfied customers with an expanded selection of the world's finest dry fruits and specialty nuts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values-section" style="padding: 5rem 0;">
+        <div class="container">
+            <div class="decorated-heading" style="text-align: center;">
+                <h2>Our Core Values</h2>
+            </div>
+            <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="glass-card value-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: center; transition: transform 0.3s ease;">
+                    <div class="value-icon" style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--accent);">🌱</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy);">Uncompromising Quality</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">We never compromise on quality. Every product undergoes stringent quality checks before reaching your doorstep.</p>
+                </div>
+                <div class="glass-card value-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: center; transition: transform 0.3s ease;">
+                    <div class="value-icon" style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--accent);">🤝</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy);">Enduring Trust</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">Building lasting relationships with our customers through transparency, reliability, and consistency in every interaction.</p>
+                </div>
+                <div class="glass-card value-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: center; transition: transform 0.3s ease;">
+                    <div class="value-icon" style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--accent);">♻️</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy);">Environmental Stewardship</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">Committed to sustainable sourcing and eco-friendly packaging to minimize our environmental footprint.</p>
+                </div>
+                <div class="glass-card value-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: center; transition: transform 0.3s ease;">
+                    <div class="value-icon" style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--accent);">💖</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy);">Customer Devotion</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">Your satisfaction is our highest priority. We're always here to listen, learn, and continuously improve our offerings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Commitment Section -->
+    <section class="quality-section">
+        <div class="container">
+            <div class="quality-grid">
+                <div class="quality-content">
+                    <div class="decorated-heading">
+                        <h2>Our Quality Commitment</h2>
+                    </div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">At Mewantra, quality isn't just a promise—it's our foundation. We've implemented a rigorous selection process that ensures only the finest dry fruits make it to your table.</p>
+                    <ul>
+                        <li><strong>Direct Sourcing:</strong> We work directly with farmers, cutting out middlemen to ensure freshness and fair prices.</li>
+                        <li><strong>Multi-Stage Inspection:</strong> Every batch undergoes visual, texture, moisture, and taste assessments.</li>
+                        <li><strong>Premium Storage:</strong> Climate-controlled facilities maintain optimal temperature and humidity levels.</li>
+                        <li><strong>Innovative Packaging:</strong> Vacuum-sealed packages with nitrogen flushing to preserve freshness and extend shelf life naturally.</li>
+                        <li><strong>Laboratory Testing:</strong> Random samples undergo lab testing for aflatoxins and other contaminants.</li>
+                    </ul>
+                </div>
+                <div class="quality-image">
+                    <img src="assets/images/about/quality-inspection.jpg" alt="Quality inspection process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="process-section" style="padding: 5rem 0; background: linear-gradient(135deg, rgba(26,34,56,0.02) 0%, rgba(191,160,84,0.05) 100%);">
+        <div class="container">
+            <div class="decorated-heading" style="text-align: center;">
+                <h2>Our Meticulous Process</h2>
+            </div>
+            <div class="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="glass-card process-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: left; position: relative; z-index: 1;">
+                    <div class="process-number">01</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy); position: relative; z-index: 2;">Artisanal Sourcing</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; position: relative; z-index: 2;">We partner with heritage orchards and multi-generational farmers who share our dedication to exceptional quality and sustainable practices.</p>
+                </div>
+                <div class="glass-card process-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: left; position: relative; z-index: 1;">
+                    <div class="process-number">02</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy); position: relative; z-index: 2;">Expert Selection</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; position: relative; z-index: 2;">Our quality experts personally inspect each harvest, selecting only the premium grade produce that meets our exacting standards.</p>
+                </div>
+                <div class="glass-card process-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: left; position: relative; z-index: 1;">
+                    <div class="process-number">03</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy); position: relative; z-index: 2;">Artful Processing</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; position: relative; z-index: 2;">Minimal intervention processing preserves natural flavors and nutritional benefits, while custom cleaning and grading ensure consistency.</p>
+                </div>
+                <div class="glass-card process-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2.5rem; text-align: left; position: relative; z-index: 1;">
+                    <div class="process-number">04</div>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--navy); position: relative; z-index: 2;">Precision Packaging</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; position: relative; z-index: 2;">Advanced vacuum-sealing with nitrogen flush technology locks in freshness, while our elegant packaging honors the precious contents within.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" style="padding: 5rem 0;">
+        <div class="container">
+            <div class="decorated-heading" style="text-align: center;">
+                <h2>The Visionaries Behind Mewantra</h2>
+            </div>
+            <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                <div class="glass-card team-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center;">
+                    <div class="team-image">
+                        <img src="assets/images/about/team-1.jpg" alt="Vikram Singh - Founder & CEO">
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--navy);">Vikram Singh</h3>
+                    <p class="team-role" style="font-size: 1rem; color: var(--accent); margin-bottom: 1rem;">Founder & CEO</p>
+                    <p class="team-bio" style="font-size: 1.05rem; line-height: 1.7;">A third-generation dry fruit expert with an MBA from IIM Ahmedabad, Vikram combines traditional knowledge with modern business acumen to lead Mewantra's vision of quality and excellence.</p>
+                </div>
+                <div class="glass-card team-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center;">
+                    <div class="team-image">
+                        <img src="assets/images/about/team-2.jpg" alt="Priya Sharma - Quality Director">
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--navy);">Priya Sharma</h3>
+                    <p class="team-role" style="font-size: 1rem; color: var(--accent); margin-bottom: 1rem;">Quality Director</p>
+                    <p class="team-bio" style="font-size: 1.05rem; line-height: 1.7;">With a Ph.D. in Food Technology and experience at leading international food safety organizations, Priya ensures that every product meets our rigorous quality standards.</p>
+                </div>
+                <div class="glass-card team-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 2rem; text-align: center;">
+                    <div class="team-image">
+                        <img src="assets/images/about/team-3.jpg" alt="Rahul Verma - Operations Director">
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--navy);">Rahul Verma</h3>
+                    <p class="team-role" style="font-size: 1rem; color: var(--accent); margin-bottom: 1rem;">Operations Director</p>
+                    <p class="team-bio" style="font-size: 1.05rem; line-height: 1.7;">A supply chain expert with 15 years of experience in luxury food retail, Rahul masterfully orchestrates our operations to ensure seamless delivery while maintaining product integrity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="decorated-heading" style="text-align: center;">
+                <h2>Voices of Our Partners</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="glass-card testimonial-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);">
+                    <p class="testimonial-quote">Working with Mewantra has transformed our restaurant's dessert offerings. Their Kashmiri walnuts and Iranian pistachios have an unmatched flavor that our patrons constantly praise.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Chef Testimonial">
+                        </div>
+                        <div>
+                            <p class="testimonial-name">Chef Arjun Kapoor</p>
+                            <p class="testimonial-role">Executive Chef, The Spice Garden</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card testimonial-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);">
+                    <p class="testimonial-quote">As an almond grower, I've been impressed by Mewantra's commitment to quality and fair trade. They visit our orchards personally and truly understand what makes premium almonds special.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Farmer Testimonial">
+                        </div>
+                        <div>
+                            <p class="testimonial-name">David Miller</p>
+                            <p class="testimonial-role">Heritage Almond Grower, California</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card testimonial-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);">
+                    <p class="testimonial-quote">For our Diwali corporate gifts, we partnered with Mewantra and were astounded by the presentation and quality. Our clients called specifically to praise the gift hampers.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Corporate Testimonial">
+                        </div>
+                        <div>
+                            <p class="testimonial-name">Nisha Mehta</p>
+                            <p class="testimonial-role">Head of Corporate Relations, TechInnovate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta-section" style="padding: 5rem 0; background: linear-gradient(135deg, rgba(26,34,56,0.03) 0%, rgba(191,160,84,0.07) 100%);">
+        <div class="container">
+            <div class="glass-card cta-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 4rem; text-align: center;">
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--navy);">Experience the Mewantra Difference</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; max-width: 800px; margin: 0 auto 2.5rem;">Join our family of discerning customers who appreciate the exceptional quality, rich flavors, and meticulous care that goes into every Mewantra product.</p>
+                <div class="cta-buttons" style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="products.html" class="glass-button" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 30px; color: var(--navy); padding: 1rem 2.5rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none; font-size: 1.1rem;">Explore Our Premium Selection</a>
+                    <a href="contact.html" class="glass-button" style="background: rgba(26, 34, 56, 0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 30px; color: var(--accent); padding: 1rem 2.5rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none; font-size: 1.1rem;">Connect With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Slimmed Version -->
+    <footer style="background: rgba(26, 34, 56, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--accent); padding: 2rem 0 1rem; margin-top: 2rem;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-bottom: 1rem;">
+                <!-- Logo & Tagline -->
+                <div style="flex: 1; min-width: 200px; max-width: 300px;">
+                    <h3 style="margin-bottom: 0.5rem;">Mewantra</h3>
+                    <p style="font-size: 0.9rem;">Premium dry fruits delivered fresh to your doorstep</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <a href="index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Home</a>
+                    <a href="products.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Products</a>
+                    <a href="about.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">About</a>
+                    <a href="contact.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Contact</a>
+                    <a href="cart.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Cart</a>
+                </div>
+                
+                <!-- Contact -->
+                <div style="flex: 1; min-width: 200px; text-align: right; font-size: 0.9rem;">
+                    <p>📞 +91 9717098678 &nbsp;|&nbsp; 📧 orders@mewantra.com</p>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="text-align: center; border-top: 1px solid rgba(191, 160, 84, 0.2); padding-top: 1rem; font-size: 0.85rem;">
+                <p>&copy; 2025 Mewantra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919717098678?text=Hi, I'm interested in your premium dry fruits" class="glass-button whatsapp-float" style="position: fixed; width: 60px; height: 60px; bottom: 2rem; right: 2rem; background: rgba(37, 211, 102, 0.9); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: white; border-radius: 50%; text-align: center; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); z-index: 100; transition: transform 0.3s; text-decoration: none;" target="_blank">
+        📱
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
