@@ -31,6 +31,39 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.includes('cart.html')) {
         renderCart();
     }
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get filter value
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter products
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
 });
 
 // Simple cart functions
@@ -109,3 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Make sure renderCart is defined globally, not inside another function
+function renderCart() {
+    // Your cart rendering code
+}

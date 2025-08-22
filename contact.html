@@ -16,132 +16,96 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/components/glass-effects.css">
     <link rel="stylesheet" href="css/pages/contact.css">
 </head>
-<body>
+<body style="padding-top: 100px;">
     <!-- Glass Navbar -->
-    <header class="glass-navbar">
-        <div class="container header-container">
-            <div class="logo-container">
-                <a href="/" class="logo">Mewantra</a>
-            </div>
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-                <a href="cart.html" class="glass-button cart-btn">
-                    🛒 Cart
-                </a>
-                <a href="orderNow.html" class="glass-button">Order Now</a>
+    <header class="glass-navbar" style="background: rgba(26, 34, 56, 0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); position: fixed; width: 100%; z-index: 1000; padding: 0.5rem 0; top: 0;">
+        <div class="container">
+            <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                <div class="logo-container" style="margin-bottom: 0;">
+                    <a href="index.html" class="logo" style="font-size: 2.5rem; font-weight: 700; color: var(--accent); font-family: 'Playfair Display', serif; text-decoration: none;">Mewantra</a>
+                </div>
+                <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+                    <ul class="nav-links" style="display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0;">
+                        <li><a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Home</a></li>
+                        <li><a href="products.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">Products</a></li>
+                        <li><a href="about.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">About</a></li>
+                        <li><a href="contact.html" style="color: var(--secondary); text-decoration: none; font-weight: 500;">Contact</a></li>
+                    </ul>
+                    <a href="cart.html" class="glass-button cart-btn" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none;">
+                        🛒 Cart
+                    </a>
+                    <a href="orderNow.html" class="glass-button" style="background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 25px; color: var(--navy); padding: 0.7rem 1.8rem; font-weight: 600; letter-spacing: 0.5px; text-decoration: none;">Order Now</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Contact & Order</h1>
-            <p>Get in touch with us to place your order or for any queries</p>
-        </div>
-    </section>
-
-    <!-- Contact Methods -->
-    <section class="contact-methods">
-        <div class="container">
-            <h2 class="section-title">How to Order</h2>
-            <p class="section-subtitle">Choose your preferred method to place an order or get in touch</p>
-            <div class="methods-grid">
-                <div class="glass-card method-card">
-                    <div class="method-icon">📞</div>
-                    <h3>Call Us</h3>
-                    <p>Speak directly with our team</p>
-                    <div class="contact-info">+91 9717098678</div>
-                    <p>Mon-Sat: 9 AM - 7 PM</p>
-                    <a href="tel:+919717098678" class="glass-button method-btn">Call Now</a>
-                </div>
-                <div class="glass-card method-card">
-                    <div class="method-icon">📱</div>
-                    <h3>WhatsApp Order</h3>
-                    <p>Quick and convenient ordering</p>
-                    <div class="contact-info">+91 9717098678</div>
-                    <p>Send product list for instant quote</p>
-                    <a href="https://wa.me/919717098678?text=Hi, I want to place an order for dry fruits" class="glass-button method-btn">WhatsApp</a>
-                </div>
-                <div class="glass-card method-card">
-                    <div class="method-icon">📧</div>
-                    <h3>Email Us</h3>
-                    <p>Detailed orders and inquiries</p>
-                    <div class="contact-info">orders@mewantra.com</div>
-                    <p>We respond within 24 hours</p>
-                    <a href="mailto:orders@mewantra.com" class="glass-button method-btn">Send Email</a>
-                </div>
-                <div class="glass-card method-card">
-                    <div class="method-icon">🏪</div>
-                    <h3>Visit Our Store</h3>
-                    <p>See and taste before you buy</p>
-                    <div class="contact-info">Galleria Market, Gurgaon</div>
-                    <p>Mon-Sat: 10 AM - 8 PM</p>
-                    <a href="#location" class="glass-button method-btn">Get Directions</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
+ 
     <!-- Order Form -->
-    <section class="order-form-section">
+    <section class="order-form-section" style="margin-bottom: 5rem; background: linear-gradient(135deg, rgba(26,34,56,0.02) 0%, rgba(191,160,84,0.05) 100%); padding: 3rem 0; border-radius: 20px;">
         <div class="container">
-            <div class="glass-card form-container">
-                <h2>Place Your Order Online</h2>
-                <div class="success-message" id="successMessage">
-                    Thank you! Your order has been received. We'll contact you shortly to confirm details.
+            <div class="glass-card form-container" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 40px rgba(31, 38, 135, 0.1); padding: 3rem; overflow: hidden; position: relative;">
+                
+                <!-- Decorative elements -->
+                <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(191,160,84,0.1) 0%, rgba(255,255,255,0) 70%);"></div>
+                <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(26,34,56,0.05) 0%, rgba(255,255,255,0) 70%);"></div>
+                
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--navy); text-align: center;">Place Your Order Online</h2>
+                <p style="text-align: center; color: var(--light-text); margin-bottom: 2.5rem; font-size: 1.1rem;">Complete the form below and we'll process your order promptly</p>
+                
+                <div class="success-message" id="successMessage" style="display: none; background: linear-gradient(135deg, rgba(40,167,69,0.1) 0%, rgba(40,167,69,0.2) 100%); padding: 1.5rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; color: #1e7e34; border-left: 4px solid #28a745; transform: translateY(-10px); opacity: 0; transition: all 0.5s ease;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✅</div>
+                    <h3 style="margin-bottom: 0.5rem; font-weight: 600;">Thank You!</h3>
+                    <p>Your order has been received. We'll contact you shortly to confirm details.</p>
                 </div>
-                <form id="orderForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
+                
+                <form id="orderForm" style="position: relative; z-index: 1;">
+                    <div class="form-row" style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <div class="form-group" style="flex: 1; min-width: 250px;">
+                            <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Full Name *</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);">
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City *</label>
-                            <input type="text" id="city" name="city" required>
+                        <div class="form-group" style="flex: 1; min-width: 250px;">
+                            <label for="phone" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="address">Delivery Address *</label>
-                        <textarea id="address" name="address" required></textarea>
+                    <div class="form-row" style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <div class="form-group" style="flex: 1; min-width: 250px;">
+                            <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Email Address</label>
+                            <input type="email" id="email" name="email" style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);">
+                        </div>
+                        <div class="form-group" style="flex: 1; min-width: 250px;">
+                            <label for="city" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">City *</label>
+                            <input type="text" id="city" name="city" required style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="products">Products & Quantities *</label>
+                        <label for="address" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Delivery Address *</label>
+                        <textarea id="address" name="address" required style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);"></textarea>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="products" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Products & Quantities *</label>
                         <textarea id="products" name="products" placeholder="Example: 
 - Almonds - 500g
 - Dates - 250g  
 - Cashews - 250g
-Please list all items you want to order" required></textarea>
+Please list all items you want to order" required style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);"></textarea>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="delivery-date">Preferred Delivery Date</label>
-                            <input type="date" id="delivery-date" name="delivery-date">
+                    <div class="form-row" style="display: flex; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <div class="form-group" style="flex: 1; min-width: 250px;">
+                            <label for="delivery-date" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Preferred Delivery Date</label>
+                            <input type="date" id="delivery-date" name="delivery-date" style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);">
                         </div>
-                        <div class="form-group">
-                            <label for="delivery-time">Preferred Time</label>
-                            <select id="delivery-time" name="delivery-time">
+                        <div class="form-group" style="flex: 1; min-width: 250px;">
+                            <label for="delivery-time" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Preferred Time</label>
+                            <select id="delivery-time" name="delivery-time" style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);">
                                 <option value="">Select Time Slot</option>
                                 <option value="morning">Morning (9 AM - 12 PM)</option>
                                 <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
@@ -150,45 +114,104 @@ Please list all items you want to order" required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="special-requests">Special Requests or Notes</label>
-                        <textarea id="special-requests" name="special-requests" placeholder="Any special packaging requirements, gift wrapping, or other requests"></textarea>
+                        <label for="special-requests" style="display: block; margin-bottom: 0.5rem; color: var(--navy); font-weight: 500;">Special Requests or Notes</label>
+                        <textarea id="special-requests" name="special-requests" placeholder="Any special packaging requirements, gift wrapping, or other requests" style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(191, 160, 84, 0.3); background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); font-size: 1rem; transition: all 0.3s ease; color: var(--navy);"></textarea>
                     </div>
-                    <button type="submit" class="glass-button submit-btn">Submit Order</button>
+                    <button type="submit" class="glass-button submit-btn" style="width: 100%; padding: 0.9rem 1rem; border-radius: 10px; background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); color: var(--navy); font-weight: 600; letter-spacing: 0.5px; text-decoration: none; transition: transform 0.3s;">
+                        Submit Order
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Business Hours -->
-    <section class="business-hours">
-        <div class="container">
-            <div class="glass-card hours-content">
-                <h2 class="section-title">Business Hours</h2>
-                <div class="hours-grid">
-                    <div class="hours-card">
-                        <h3>📞 Phone Orders</h3>
-                        <p><strong>Monday - Saturday:</strong> 9:00 AM - 7:00 PM</p>
-                        <p><strong>Sunday:</strong> 10:00 AM - 5:00 PM</p>
+       <!-- Contact Methods & Business Hours - Combined Section -->
+<section class="contact-methods" style="margin-bottom: 3rem;">
+    <div class="container">
+        <h2 class="section-title" style="margin-bottom: 1rem;">Get In Touch</h2>
+        
+        <!-- Contact Methods & Hours Grid -->
+        <div class="glass-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <!-- Call & WhatsApp -->
+                <div style="display: flex; gap: 1rem;">
+                    <div style="font-size: 2rem; min-width: 40px; text-align: center; margin-top: 0.3rem;">📞</div>
+                    <div>
+                        <h3 style="margin: 0 0 0.3rem 0; font-size: 1.1rem;">Call or WhatsApp</h3>
+                        <p style="margin: 0 0 0.3rem 0;"><a href="tel:+919717098678" style="color: var(--navy); text-decoration: none; font-weight: 500;">+91 9717098678</a></p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                            <div style="font-size: 0.85rem; color: var(--light-text); background: rgba(191,160,84,0.1); padding: 0.3rem 0.6rem; border-radius: 4px;">
+                                <span style="font-weight: 500;">Mon-Sat:</span> 9AM-7PM
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--light-text); background: rgba(191,160,84,0.1); padding: 0.3rem 0.6rem; border-radius: 4px;">
+                                <span style="font-weight: 500;">Sun:</span> 10AM-5PM
+                            </div>
+                        </div>
                     </div>
-                    <div class="hours-card">
-                        <h3>🏪 Store Visits</h3>
-                        <p><strong>Monday - Saturday:</strong> 10:00 AM - 8:00 PM</p>
-                        <p><strong>Sunday:</strong> 11:00 AM - 6:00 PM</p>
+                </div>
+                
+                <!-- Email -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="font-size: 2rem; min-width: 40px; text-align: center;">📧</div>
+                    <div>
+                        <h3 style="margin: 0 0 0.3rem 0; font-size: 1.1rem;">Email Us</h3>
+                        <p style="margin: 0 0 0.3rem 0;"><a href="mailto:orders@mewantra.com" style="color: var(--navy); text-decoration: none;">orders@mewantra.com</a></p>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--light-text);">Response within 24 hours</p>
                     </div>
-                    <div class="hours-card">
-                        <h3>🚚 Delivery</h3>
-                        <p><strong>Same-day delivery:</strong> Order before 2 PM</p>
-                        <p><strong>Delivery areas:</strong> City-wide coverage</p>
+                </div>
+                
+                <!-- Store Visit -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="font-size: 2rem; min-width: 40px; text-align: center;">🏪</div>
+                    <div>
+                        <h3 style="margin: 0 0 0.3rem 0; font-size: 1.1rem;">Visit Our Store</h3>
+                        <p style="margin: 0 0 0.3rem 0;">Galleria Market, Gurgaon</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--light-text);">Mon-Sat: 10AM - 8PM</p>
                     </div>
-                    <div class="hours-card">
-                        <h3>📱 WhatsApp</h3>
-                        <p><strong>24/7 messaging:</strong> Send us your order anytime</p>
-                        <p><strong>Response time:</strong> Within 2 hours during business hours</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="font-size: 2rem; min-width: 40px; text-align: center;">🔗</div>
+                    <div>
+                        <h3 style="margin: 0 0 0.3rem 0; font-size: 1.1rem;">Quick Actions</h3>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="https://wa.me/919717098678?text=Hi, I want to place an order" class="glass-button mini-btn" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; display: inline-block; text-decoration: none;">WhatsApp</a>
+                            <a href="#location" class="glass-button mini-btn" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; display: inline-block; text-decoration: none;">Get Directions</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <!-- Business Hours - Slimmed Version -->
+        <div class="glass-card hours-content" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem; margin-top: 1rem;">
+            <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Business Hours</h2>
+            <div class="hours-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                <div class="hours-card" style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">📞 Phone Orders</h3>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Mon-Sat:</strong> 9:00 AM - 7:00 PM</p>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Sun:</strong> 10:00 AM - 5:00 PM</p>
+                </div>
+                <div class="hours-card" style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">🏪 Store Visits</h3>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Mon-Sat:</strong> 10:00 AM - 8:00 PM</p>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Sun:</strong> 11:00 AM - 6:00 PM</p>
+                </div>
+                <div class="hours-card" style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">🚚 Delivery</h3>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Same-day delivery:</strong> Order before 2 PM</p>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Areas:</strong> City-wide coverage</p>
+                </div>
+                <div class="hours-card" style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">📱 WhatsApp</h3>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>24/7 messaging:</strong> Send us your order anytime</p>
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Response:</strong> Within 2 hours during business hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Location -->
     <section class="location-section" id="location">
@@ -215,69 +238,127 @@ Please list all items you want to order" required></textarea>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="glass-card faq-card">
-                    <h3>🚚 Delivery Information</h3>
-                    <p><strong>Q:</strong> Do you deliver on weekends?</p>
-                    <p><strong>A:</strong> Yes, we deliver on Saturdays. Sunday delivery available for urgent orders.</p>
-                </div>
-                <div class="glass-card faq-card">
-                    <h3>💰 Payment Options</h3>
-                    <p><strong>Q:</strong> What payment methods do you accept?</p>
-                    <p><strong>A:</strong> Cash on delivery, UPI, bank transfer, and online payment.</p>
-                </div>
-                <div class="glass-card faq-card">
-                    <h3>📦 Minimum Order</h3>
-                    <p><strong>Q:</strong> Is there a minimum order amount?</p>
-                    <p><strong>A:</strong> No minimum order. Free delivery on orders above ₹1,000.</p>
-                </div>
-                <div class="glass-card faq-card">
-                    <h3>🔄 Returns & Exchange</h3>
-                    <p><strong>Q:</strong> What's your return policy?</p>
-                    <p><strong>A:</strong> 100% satisfaction guarantee. Easy returns within 24 hours of delivery.</p>
-                </div>
+    <section class="faq-section" style="margin-bottom: 4rem;">
+    <div class="container">
+        <h2 class="section-title" style="margin-bottom: 2rem;">Frequently Asked Questions</h2>
+        <div class="faq-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <!-- Original FAQs -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">🚚 Delivery Information</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Do you deliver on weekends?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Yes, we deliver on Saturdays. Sunday delivery available for urgent orders.</p>
             </div>
-        </div>
-    </section>
+            
+            <!-- New FAQs about Dry Fruit Quality -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">🌰 Dry Fruit Quality</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> How do you ensure the quality of your dry fruits?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> We source our dry fruits from the best farms and suppliers, ensuring they are fresh, organic, and of the highest quality. Each batch is carefully inspected and tested for quality assurance.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Are your dry fruits organic?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Yes, we offer a range of organic dry fruits that are free from pesticides and artificial fertilizers. Look for the organic certification on the packaging.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> How should I store dry fruits to maintain their freshness?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Store dry fruits in a cool, dry place away from direct sunlight. For long-term storage, keep them in an airtight container in the refrigerator.</p>
+            </div>
+            
+            <!-- Delivery FAQs -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">🚚 Delivery Coverage</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Which areas do you deliver to?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> We deliver across Delhi NCR (Delhi, Gurgaon, Noida, Faridabad, Ghaziabad). For other locations, we offer shipping via courier partners.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> How long does delivery typically take?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Same-day delivery for orders placed before 2 PM in Delhi NCR. Next-day delivery for orders placed after 2 PM. For other cities, 2-4 business days depending on location.</p>
+            </div>
 
-    <!-- Footer -->
-    <footer class="glass-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Mewantra</h3>
-                    <p>Your trusted partner for premium quality dry fruits and nuts. Fresh, natural, and delivered with care.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="/">Home</a></p>
-                    <p><a href="products.html">Products</a></p>
-                    <p><a href="about.html">About Us</a></p>
-                    <p><a href="contact.html">Contact</a></p>
-                    <p><a href="cart.html">Cart</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>📞 +91 9717098678</p>
-                    <p>📧 orders@mewantra.com</p>
-                    <p>🕒 Mon-Sat: 9 AM - 7 PM</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <p>Stay connected for latest offers and updates</p>
-                </div>
+            <!-- Shipping Costs FAQ -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">📦 Shipping & Delivery Fees</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Is there a delivery charge?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Free delivery on orders above ₹1000 in Delhi NCR. For orders below ₹1000, a nominal fee of ₹50-100 applies based on distance. For other cities, shipping costs vary by weight and location.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Is there a minimum order value?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Our minimum order value is ₹500 for delivery. No minimum for in-store pickup.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Mewantra. All rights reserved.</p>
+
+            <!-- Payment Options FAQ -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">💳 Payment Methods</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> What payment options do you accept?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> We accept Cash on Delivery (COD), UPI (Google Pay, PhonePe, Paytm), credit/debit cards, net banking, and bank transfers. For bulk orders, we also accept advance NEFT transfers.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Do you offer any discounts for advance payments?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Yes, we offer a 2% discount on orders above ₹2000 when paid in advance via UPI or bank transfer.</p>
+            </div>
+
+            <!-- Order Tracking FAQ -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">📱 Order Tracking & Updates</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> How can I track my order?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> After placing your order, you'll receive a confirmation via WhatsApp or SMS. For local deliveries, our executive will contact you before delivery. For courier shipments, we'll provide a tracking number via email or SMS.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Can I reschedule my delivery?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Yes, you can reschedule by calling or WhatsApp messaging us at least 3 hours before the scheduled delivery time. For courier deliveries, please contact us 24 hours in advance.</p>
+            </div>
+
+            <!-- Returns & Refunds FAQ -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">🔄 Returns & Refunds</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> What is your return policy?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> We offer a 100% satisfaction guarantee. If you're not satisfied with the quality, you can return the products within 24 hours of delivery for a full refund or replacement.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> How do refunds work?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> For COD orders, refunds are processed in cash at the time of return or via bank transfer within 48 hours. For online payments, refunds are processed to the original payment method within 3-5 business days.</p>
+            </div>
+
+            <!-- Bulk Orders FAQ -->
+            <div class="glass-card faq-card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); padding: 1.5rem;">
+                <h3 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.2rem;">🏢 Bulk & Corporate Orders</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> Do you offer special rates for bulk orders?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> Yes, we offer special pricing for bulk orders (5kg+) and corporate gifting. Contact us directly for a customized quote based on your requirements.</p>
+                
+                <p style="margin-bottom: 0.5rem;"><strong>Q:</strong> How far in advance should I place a bulk order?</p>
+                <p style="margin-bottom: 1rem;"><strong>A:</strong> For bulk orders, we recommend placing your order at least 3-5 days in advance to ensure availability and timely delivery, especially during festival seasons.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
+
+    <!-- Footer - Slimmed Version -->
+<footer style="background: rgba(26, 34, 56, 0.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--accent); padding: 2rem 0 1rem; margin-top: 2rem;">
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin-bottom: 1rem;">
+            <!-- Logo & Tagline -->
+            <div style="flex: 1; min-width: 200px; max-width: 300px;">
+                <h3 style="margin-bottom: 0.5rem;">Mewantra</h3>
+                <p style="font-size: 0.9rem;">Premium dry fruits delivered fresh to your doorstep</p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <a href="index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Home</a>
+                <a href="products.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Products</a>
+                <a href="about.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">About</a>
+                <a href="contact.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Contact</a>
+                <a href="cart.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">Cart</a>
+            </div>
+            
+            <!-- Contact -->
+            <div style="flex: 1; min-width: 200px; text-align: right; font-size: 0.9rem;">
+                <p>📞 +91 9717098678 &nbsp;|&nbsp; 📧 orders@mewantra.com</p>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div style="text-align: center; border-top: 1px solid rgba(191, 160, 84, 0.2); padding-top: 1rem; font-size: 0.85rem;">
+            <p>&copy; 2025 Mewantra. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919717098678" class="glass-button whatsapp-float" target="_blank">
+    <a href="https://wa.me/919717098678" class="glass-button whatsapp-float" style="position: fixed; width: 60px; height: 60px; bottom: 2rem; right: 2rem; background: rgba(191, 160, 84, 0.8); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: var(--navy); border-radius: 50%; text-align: center; font-size: 1.8rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); z-index: 100; transition: transform 0.3s; text-decoration: none;" target="_blank">
         📱
     </a>
 
